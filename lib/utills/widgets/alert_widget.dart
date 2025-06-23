@@ -35,6 +35,7 @@ class AlertWidget extends StatelessWidget {
               separatorBuilder: (_, __) => SizedBox(width: 8),
               itemBuilder: (context, i) {
                 return AlertFeatureCard(
+                  type: items[i].type,
                   icon: items[i].icon,
                   label: items[i].label,
                 );

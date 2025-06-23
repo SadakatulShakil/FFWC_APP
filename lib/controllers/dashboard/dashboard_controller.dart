@@ -63,10 +63,10 @@ class DashboardController extends GetxController {
     alert_features.addAll([
       AlertFeatureModel(
         items: [
-          AlertItemModel(icon: 'assets/icons/rainfall_icon.png', label: '(22 June 2025) The Sarigowain River in Sylhet district, the Jadukata River in Sunamganj district and the Someshwari River in Netrakona View More...'),
-          AlertItemModel(icon: 'assets/icons/rainfall_icon.png', label: '(22 June 2025) The Sarigowain River in Sylhet district, the Jadukata River in Sunamganj district and the Someshwari River in Netrakona View More...'),
-          AlertItemModel(icon: 'assets/icons/rainfall_icon.png', label: '(22 June 2025) The Sarigowain River in Sylhet district, the Jadukata River in Sunamganj district and the Someshwari River in Netrakona View More...'),
-          AlertItemModel(icon: 'assets/icons/rainfall_icon.png', label: '(22 June 2025) The Sarigowain River in Sylhet district, the Jadukata River in Sunamganj district and the Someshwari River in Netrakona View More...'),
+          AlertItemModel(type: 'danger', icon: 'assets/icons/danger_alert.png', label: '(22 June 2025) The Sarigowain River in Sylhet district, the Jadukata River in Sunamganj district and the Someshwari River in Netrakona View More...'),
+          AlertItemModel(type: 'info', icon: 'assets/icons/info_alert.png', label: '(22 June 2025) The Sarigowain River in Sylhet district, the Jadukata River in Sunamganj district and the Someshwari River in Netrakona View More...'),
+          AlertItemModel(type: 'medium', icon: 'assets/icons/medium_alert.png', label: '(22 June 2025) The Sarigowain River in Sylhet district, the Jadukata River in Sunamganj district and the Someshwari River in Netrakona View More...'),
+          AlertItemModel(type: 'danger', icon: 'assets/icons/danger_alert.png', label: '(22 June 2025) The Sarigowain River in Sylhet district, the Jadukata River in Sunamganj district and the Someshwari River in Netrakona View More...'),
         ],
       ),
     ]);
