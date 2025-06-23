@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "912083609281",
+    "project_id": "ffwc-4c802",
+    "storage_bucket": "ffwc-4c802.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:912083609281:android:0f97836bce9df6905b1640",
+        "android_client_info": {
+          "package_name": "com.rimes.ffwc_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDUuGsMu8Hke5kCf1tmKQgtdbJBkDVlufA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
