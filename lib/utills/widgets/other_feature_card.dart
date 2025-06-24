@@ -1,4 +1,6 @@
+import 'package:ffwc_app/Utills/AppColors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class OtherFeatureCard extends StatelessWidget {
   final String icon;
@@ -13,28 +15,26 @@ class OtherFeatureCard extends StatelessWidget {
       child: Container(
         width: 100,
         decoration: BoxDecoration(
-          color: Colors.grey.shade200,
+          color: AppColors().app_secondary_bg,
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(color:
-            Colors.red.shade100,
+            AppColors().app_secondary_bg,
                 blurRadius: 4,
                 offset: Offset(2, 2))
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.all(12.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
+              SvgPicture.asset(
                 icon,
-                width: 40,
-                height: 40,
               ),
               SizedBox(height: 8),
-              Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700), textAlign: TextAlign.center),
+              Text(label, style: TextStyle(fontSize: 12, fontWeight: FontWeight.w700), textAlign: TextAlign.start),
             ],
           ),
         ),

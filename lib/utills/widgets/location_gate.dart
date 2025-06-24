@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../pages/dashboard.dart';
+import '../../pages/navigation_view.dart';
 import '../../services/notification_service.dart';
 
 class NotificationGatePage extends StatefulWidget {
@@ -25,7 +26,7 @@ class _NotificationGatePageState extends State<NotificationGatePage> {
 
 
       //Proceed to main page if all ok
-      Get.offAll(() => DashboardPage(), transition: Transition.downToUp);
+      Get.offAll(() => NavigationView(), transition: Transition.downToUp);
 
     } catch (e) {
       print('Permission error: $e');
@@ -46,7 +47,7 @@ class _NotificationGatePageState extends State<NotificationGatePage> {
             ? Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Image.asset('assets/images/weather_icon.png', height: 96),
+            Image.asset('assets/icons/logo.png', height: 96),
             SizedBox(height: 12),
             Text("Powered by RIMES"),
           ],

@@ -39,7 +39,7 @@ class DashboardController extends GetxController {
         title: 'STATION CONDITIONS',
         items: [
           StationItemModel(title: 'Severe Flood', value: '07', label: 'More than 1 m above danger level'),
-          StationItemModel(title: 'Flood', value: '06', label: 'Above danger level'),
+          StationItemModel(title: 'Flood', value: '06', label: 'Its Above danger level'),
           StationItemModel(title: 'Warning', value: '05', label: 'Within 50 cm below danger level'),
           StationItemModel(title: 'Normal', value: '04', label: 'More than 50 cm below danger level'),
         ],
@@ -51,10 +51,10 @@ class DashboardController extends GetxController {
       OtherFeatureModel(
         title: 'OTHER FEATURES',
         items: [
-          OtherFeaturesItemModel(icon: 'assets/icons/rainfall_icon.png',  label: 'Rainfall Map View'),
-          OtherFeaturesItemModel(icon: 'assets/icons/water_level_icon.png', label: 'Current Water Level'),
-          OtherFeaturesItemModel(icon: 'assets/icons/water_level_forecast_icon.png', label: 'Water Level Forecast'),
-          OtherFeaturesItemModel(icon: 'assets/icons/inundation_icon.png', label: 'Inundation Map'),
+          OtherFeaturesItemModel(icon: 'assets/svg/rainfall.svg',  label: 'Rainfall Map View'),
+          OtherFeaturesItemModel(icon: 'assets/svg/bulletin.svg', label: 'Current Water Level'),
+          OtherFeaturesItemModel(icon: 'assets/svg/water_level.svg', label: 'Water Level Forecast'),
+          OtherFeaturesItemModel(icon: 'assets/svg/bulletin.svg', label: 'Inundation Map'),
         ],
       ),
     ]);
