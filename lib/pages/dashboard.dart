@@ -23,7 +23,7 @@ class _DashboardPageState extends State<DashboardPage> {
       value: SystemUiOverlayStyle.light,
       child: Scaffold(
           backgroundColor: Colors.white,
-          body: Obx(() => Container(
+          body: Obx(() => SizedBox(
             height: double.infinity,
             child: Stack(
               children: [
