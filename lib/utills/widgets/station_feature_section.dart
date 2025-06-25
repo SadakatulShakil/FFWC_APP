@@ -12,7 +12,7 @@ class StationFeatureWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(left: 8.0, right: 8, bottom: 5.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -23,7 +23,10 @@ class StationFeatureWidget extends StatelessWidget {
                 padding: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                 child: Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black45)),
               ),
-              Icon(Icons.arrow_forward_ios, size: 16, color: Colors.cyan),
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.cyan),
+              ),
             ],
           ),
           SizedBox(height: 8,),

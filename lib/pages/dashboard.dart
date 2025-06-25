@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:marquee/marquee.dart';
 
 import '../controllers/dashboard/dashboard_controller.dart';
 import '../utills/widgets/alert_widget.dart';
@@ -29,8 +30,8 @@ class _DashboardPageState extends State<DashboardPage> {
               children: [
                 ///Background gif or image for animation
                 Container(
-                  padding: EdgeInsets.fromLTRB(16, 40, 16, 16),
-                  height: 240,
+                  padding: EdgeInsets.fromLTRB(16, 35, 16, 16),
+                  height: 225,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -172,7 +173,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
                 /// Curved section and List of content
                 Positioned(
-                  top: 215,
+                  top: 200,
                   left: 0,
                   right: 0,
                   bottom: 0,
@@ -197,13 +198,34 @@ class _DashboardPageState extends State<DashboardPage> {
                         ],
                       ),
                       child: ListView(
-                        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 0),
+                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
                         children: [
                           // First: Station features
                           ...controller.station_features.map((feature) => StationFeatureWidget(
                             title: feature.title,
                             items: feature.items,
                           )),
+
+                          SizedBox(height: 5),
+
+                          Container(
+                            height: 40,
+                            color: Color(0xFFFFEFF0),
+                            child: Marquee(
+                              text: '🚨 বন্যা সতর্কতা: (২৩ জুন ২০২৫) তিস্তা, ধরলা ও দুধকুমার নদীসমূহের পানি আগামী ০২ দিন বৃদ্ধি পেতে পারে এবং আগামী ৪৮ ঘণ্টায় তিস্তা নদীর পানি সতর্কসীমায় (বিপদসীমার কাছাকাছি) প্রবাহিত হতে পারে। ✦✦ বিস্তারিত পূর্বাভাসের জন্য দৈনিক প্রতিবেদন দেখুন।',
+                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 16),
+                              scrollAxis: Axis.horizontal,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              blankSpace: 20.0,
+                              velocity: 100.0,
+                              pauseAfterRound: Duration(seconds: 1),
+                              startPadding: 5.0,
+                              accelerationDuration: Duration(seconds: 1),
+                              accelerationCurve: Curves.linear,
+                              decelerationDuration: Duration(milliseconds: 500),
+                              decelerationCurve: Curves.easeOut,
+                            ),
+                          ),
 
                           // Second: Other features
                           ...controller.other_features.map((feature) => OtherFeatureSectionWidget(

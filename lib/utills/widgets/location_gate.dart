@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/mobile/MobileController.dart';
-import '../../pages/dashboard.dart';
 import '../../pages/mobile.dart';
-import '../../pages/navigation_view.dart';
 import '../../services/notification_service.dart';
 
 class NotificationGatePage extends StatefulWidget {

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../AppColors.dart';
-
 class AlertFeatureCard extends StatelessWidget {
   final String type;
   final String icon;

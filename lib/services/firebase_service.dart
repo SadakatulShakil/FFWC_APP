@@ -1,6 +1,6 @@
 import 'package:ffwc_app/services/user_pref_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:get/get.dart';
+
 import 'notification_service.dart';
 
 class FirebaseService {

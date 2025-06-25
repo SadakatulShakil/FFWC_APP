@@ -1,4 +1,3 @@
-import 'package:ffwc_app/pages/dashboard2.dart';
 import 'package:ffwc_app/utills/widgets/other_feature_section.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

@@ -3,7 +3,6 @@ import 'package:ffwc_app/pages/pdf_preview_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class OtherFeatureCard extends StatelessWidget {
   final String icon;

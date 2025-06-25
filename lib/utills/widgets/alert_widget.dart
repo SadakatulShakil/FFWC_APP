@@ -1,11 +1,7 @@
 import 'package:ffwc_app/models/alertFeatureModel.dart';
-import 'package:ffwc_app/models/feature_item_model.dart';
-import 'package:ffwc_app/models/other_features_item_model.dart';
-import 'package:ffwc_app/utills/widgets/other_feature_card.dart';
 import 'package:flutter/material.dart';
 
 import 'alert_feature_card.dart';
-import 'station_feature_card.dart';
 
 class AlertWidget extends StatelessWidget {
   final List<AlertItemModel> items;

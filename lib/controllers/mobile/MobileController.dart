@@ -2,10 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
+
 import '../../pages/navigation_view.dart';
 import '../../pages/otp.dart';
-import '../../services/api_urls.dart';
 import '../../services/user_pref_service.dart';
 import '../navigation/navigation_binding.dart';
 

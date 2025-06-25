@@ -1,4 +1,3 @@
-// =================== controllers/dashboard_controller.dart ===================
 import 'package:ffwc_app/models/alertFeatureModel.dart';
 import 'package:ffwc_app/models/other_feature_model.dart';
 import 'package:ffwc_app/models/weather_model.dart';
@@ -51,7 +50,7 @@ class DashboardController extends GetxController {
     // Load initial Other features
     other_features.addAll([
       OtherFeatureModel(
-        title: 'OTHER FEATURES',
+        title: 'other_features'.tr,
         items: [
           OtherFeaturesItemModel(icon: 'assets/svg/rainfall.svg',  label: 'forecast_bulletin'.tr),
           OtherFeaturesItemModel(icon: 'assets/svg/bulletin.svg', label: 'rainfall_info'.tr),
