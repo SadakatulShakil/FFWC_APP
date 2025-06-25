@@ -10,6 +10,10 @@ import '../../pages/profile_page.dart';
 import '../../pages/settings_page.dart';
 import '../../services/api_urls.dart';
 import '../../services/user_pref_service.dart';
+import '../dashboard/dashboard_controller.dart';
+import '../menu/menu_controller.dart';
+import '../profile/ProfileController.dart';
+import '../settings/settings_controller.dart';
 
 class NavigationController extends GetxController {
   //TODO: Implement HomeController
@@ -36,7 +40,7 @@ class NavigationController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    //checkLogin();
+
   }
 
   @override
@@ -56,6 +60,20 @@ class NavigationController extends GetxController {
   }
 
   void changePage(int index) {
+    // Delete the controller if it exists, so it reinitializes next time
+    if (index == 0 && Get.isRegistered<DashboardController>()) {
+      Get.delete<DashboardController>(force: true);
+    }
+    if (index == 1 && Get.isRegistered<SettingsController>()) {
+      Get.delete<SettingsController>(force: true);
+    }
+    if (index == 2 && Get.isRegistered<ProfileController>()) {
+      Get.delete<ProfileController>(force: true);
+    }
+    if (index == 3 && Get.isRegistered<MenuController>()) {
+      Get.delete<MenuController>(force: true);
+    }
+
     currentTab.value = index;
   }
 }

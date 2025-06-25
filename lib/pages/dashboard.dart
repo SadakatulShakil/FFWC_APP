@@ -8,10 +8,17 @@ import '../utills/widgets/other_feature_section.dart';
 import '../utills/widgets/station_feature_section.dart';
 import 'dashboard2.dart';
 
-class DashboardPage extends StatelessWidget{
+class DashboardPage extends StatefulWidget{
+  @override
+  State<DashboardPage> createState() => _DashboardPageState();
+}
+
+class _DashboardPageState extends State<DashboardPage> {
   final controller = Get.put(DashboardController());
+
   @override
   Widget build(BuildContext context) {
+
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
       child: Scaffold(

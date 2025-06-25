@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import 'controllers/mobile/MobileController.dart';
 import 'controllers/navigation/navigation_binding.dart';
 import 'controllers/settings/settings_controller.dart'; // Import your DBService
 
@@ -38,7 +39,7 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  final NavigationController navigationController = Get.put(NavigationController());
+  final MobileController mobileController = Get.put(MobileController());
   final FirebaseService _firebaseService = FirebaseService();
   final String savedLang;
   MyApp(this.savedLang);

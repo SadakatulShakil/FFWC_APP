@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../controllers/mobile/MobileController.dart';
 import '../../pages/dashboard.dart';
+import '../../pages/mobile.dart';
 import '../../pages/navigation_view.dart';
 import '../../services/notification_service.dart';
 
@@ -12,6 +14,7 @@ class NotificationGatePage extends StatefulWidget {
 
 class _NotificationGatePageState extends State<NotificationGatePage> {
   bool isLoading = true;
+  final MobileController mobileController = Get.put(MobileController());
 
   @override
   void initState() {
@@ -26,7 +29,9 @@ class _NotificationGatePageState extends State<NotificationGatePage> {
 
 
       //Proceed to main page if all ok
-      Get.offAll(() => NavigationView(), transition: Transition.downToUp);
+      if (!mobileController.isChecking.value) {
+        Get.offAll(() => Mobile(), transition: Transition.downToUp);
+      }
 
     } catch (e) {
       print('Permission error: $e');

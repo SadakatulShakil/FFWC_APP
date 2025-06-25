@@ -10,7 +10,7 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
-  final SettingsController controller = Get.find<SettingsController>();
+  final SettingsController controller = Get.put(SettingsController());
 
   @override
   Widget build(BuildContext context) {

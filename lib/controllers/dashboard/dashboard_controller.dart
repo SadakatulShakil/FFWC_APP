@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import '../../models/feature_item_model.dart';
 import '../../models/other_features_item_model.dart';
 import '../../models/station_model.dart';
+import '../../services/user_pref_service.dart';
 
 
 class DashboardController extends GetxController {
@@ -15,6 +16,7 @@ class DashboardController extends GetxController {
   var station_features = <StationModel>[].obs;
   var other_features = <OtherFeatureModel>[].obs;
   var alert_features = <AlertFeatureModel>[].obs;
+  final userService = UserPrefService();
 
 
   @override
@@ -36,12 +38,12 @@ class DashboardController extends GetxController {
     // Load initial Station features
     station_features.addAll([
       StationModel(
-        title: 'STATION CONDITIONS',
+        title: 'station_condition'.tr,
         items: [
-          StationItemModel(title: 'Severe Flood', value: '07', label: 'More than 1 m above danger level'),
-          StationItemModel(title: 'Flood', value: '06', label: 'Its Above danger level'),
-          StationItemModel(title: 'Warning', value: '05', label: 'Within 50 cm below danger level'),
-          StationItemModel(title: 'Normal', value: '04', label: 'More than 50 cm below danger level'),
+          StationItemModel(title: 'severe_flood'.tr, value: '07'.tr, label: 'severe_mz'.tr),
+          StationItemModel(title: 'flood'.tr, value: '06'.tr, label: 'flood_mz'.tr),
+          StationItemModel(title: 'warning'.tr, value: '05'.tr, label: 'warning_mz'.tr),
+          StationItemModel(title: 'normal'.tr, value: '04'.tr, label: 'normal_mz'.tr),
         ],
       ),
     ]);
@@ -51,10 +53,10 @@ class DashboardController extends GetxController {
       OtherFeatureModel(
         title: 'OTHER FEATURES',
         items: [
-          OtherFeaturesItemModel(icon: 'assets/svg/rainfall.svg',  label: 'Rainfall Map View'),
-          OtherFeaturesItemModel(icon: 'assets/svg/bulletin.svg', label: 'Current Water Level'),
-          OtherFeaturesItemModel(icon: 'assets/svg/water_level.svg', label: 'Water Level Forecast'),
-          OtherFeaturesItemModel(icon: 'assets/svg/bulletin.svg', label: 'Inundation Map'),
+          OtherFeaturesItemModel(icon: 'assets/svg/rainfall.svg',  label: 'forecast_bulletin'.tr),
+          OtherFeaturesItemModel(icon: 'assets/svg/bulletin.svg', label: 'rainfall_info'.tr),
+          OtherFeaturesItemModel(icon: 'assets/svg/water_level.svg', label: 'water_level_forecast'.tr),
+          OtherFeaturesItemModel(icon: 'assets/svg/bulletin.svg', label: 'inundation_map'.tr),
         ],
       ),
     ]);
