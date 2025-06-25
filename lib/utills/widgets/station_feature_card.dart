@@ -1,3 +1,4 @@
+import 'package:ffwc_app/pages/station_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -22,53 +23,62 @@ class StationFeatureCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 130,
-      height: 150,
-      child: Stack(
-        children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: SvgPicture.asset(
-              getBackgroundSvg(),
-              width: double.infinity,
-              height: double.infinity,
-              fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => StationInformation(
+          title: title,
+          value: value,
+          label: label,
+        ));
+      },
+      child: Container(
+        width: 130,
+        height: 150,
+        child: Stack(
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: SvgPicture.asset(
+                getBackgroundSvg(),
+                width: double.infinity,
+                height: double.infinity,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Container(
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(title,
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black)),
-                Spacer(),
-                Text(value,
-                    style: TextStyle(
-                        fontSize: 50,
-                        fontWeight: FontWeight.bold,
-                        color: title.contains("severe_flood".tr)
-                            ? Colors.pinkAccent.shade400
-                            : title.contains("flood".tr)
-                            ? Colors.red.shade400
-                            : title.contains("warning".tr)
-                            ? Colors.orange.shade400
-                            : Colors.green.shade400
-                    )
-                ),
-                SizedBox(height: 4),
-                Text(label,
-                    style: TextStyle(fontSize: 12, color: Colors.black)),
-              ],
+            Container(
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(title,
+                      style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black)),
+                  Spacer(),
+                  Text(value,
+                      style: TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                          color: title.contains("severe_flood".tr)
+                              ? Colors.pinkAccent.shade400
+                              : title.contains("flood".tr)
+                              ? Colors.red.shade400
+                              : title.contains("warning".tr)
+                              ? Colors.orange.shade400
+                              : Colors.green.shade400
+                      )
+                  ),
+                  SizedBox(height: 4),
+                  Text(label,
+                      style: TextStyle(fontSize: 12, color: Colors.black)),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
