@@ -200,6 +200,7 @@ class _StationInformationState extends State<StationInformation> with SingleTick
                         // TabBarView
                         Expanded(
                           child: TabBarView(
+                            physics: const NeverScrollableScrollPhysics(),
                             controller: _tabController,
                             children: [
                               Center(child: StationInfoGraphicalView()),

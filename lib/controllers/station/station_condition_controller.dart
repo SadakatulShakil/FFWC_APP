@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import '../models/station_data_model.dart';
+import '../../models/station_data_model.dart';
 
 class StationController extends GetxController {
   final textController = TextEditingController();

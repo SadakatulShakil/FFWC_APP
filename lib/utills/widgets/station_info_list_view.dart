@@ -2,7 +2,7 @@ import 'package:ffwc_app/Utills/AppColors.dart';
 import 'package:ffwc_app/utills/widgets/station_data_card.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../../controllers/station_condition_controller.dart';
+import '../../controllers/station/station_condition_controller.dart';
 import '../../models/station_data_model.dart';
 
 class StationInfoListView extends StatelessWidget {

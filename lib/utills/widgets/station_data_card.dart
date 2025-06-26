@@ -18,8 +18,8 @@ class StationCard extends StatelessWidget {
         : Colors.black;
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 6),
-      padding: EdgeInsets.all(12),
+      margin: EdgeInsets.symmetric(vertical: 5),
+      padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
         color: Colors.blue.shade50,
         borderRadius: BorderRadius.circular(10),
@@ -42,23 +42,23 @@ class StationCard extends StatelessWidget {
                   text: '${station.upazila}  ',
                   style: TextStyle(color: Colors.blue),
                 ),
-                TextSpan(text: 'বিপদসীমার মাত্রা: '),
+                TextSpan(text: 'বিপদের মাত্রা: '),
                 TextSpan(
                   text: '${station.dangerLevel} ',
                   style: TextStyle(color: Colors.blue),
                 ),
-                TextSpan(text: 'গত 3 ঘন্টায়: '),
-                TextSpan(
-                  text: '${station.status} \n',
-                  style: TextStyle(color: statusColor),
-                ),
                 TextSpan(text: 'পানির স্তর: ',),
                 TextSpan(
-                  text: '${station.currentLevel}',
+                  text: '${station.currentLevel}\n',
                   style: TextStyle(color: Colors.blue),
                 ),
+                TextSpan(text: 'গত 3 ঘন্টা: '),
+                TextSpan(
+                  text: '${station.status} ',
+                  style: TextStyle(color: statusColor),
+                ),
                 TextSpan(text: ' (${station.date})'),
-                TextSpan(text: ' / পরিবর্তন: ',),
+                TextSpan(text: ' উত্থান/পতন: ',),
                 TextSpan(
                     text: ' ${station.change}',
                   style: TextStyle(color: statusColor),
