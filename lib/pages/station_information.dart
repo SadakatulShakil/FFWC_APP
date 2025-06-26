@@ -202,8 +202,8 @@ class _StationInformationState extends State<StationInformation> with SingleTick
                           child: TabBarView(
                             controller: _tabController,
                             children: [
-                              Center(child: StationInfoListView()),
                               Center(child: StationInfoGraphicalView()),
+                              Center(child: StationInfoListView()),
                             ],
                           ),
                         ),
