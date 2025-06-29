@@ -1,5 +1,11 @@
+import 'package:ffwc_app/Utills/AppColors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../controllers/menu/menu_controller.dart';
+import '../models/menu_model.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -7,7 +13,7 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
-  //final MenuController controller = Get.put(MenuController());
+  final SubMenuController controller = Get.put(SubMenuController());
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +47,7 @@ class _MenuPageState extends State<MenuPage> {
                     child: Text(
                       'মেনু তালিকা',
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 23,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                       ),
@@ -85,12 +91,11 @@ class _MenuPageState extends State<MenuPage> {
                           crossAxisSpacing: 16,
                           mainAxisSpacing: 16,
                         ),
-                        itemCount: 9, // Number of menu items
+                        itemCount: controller.menuItems.length, // Number of menu items
                         itemBuilder: (context, index) {
+                          final MenuItemModel item = controller.menuItems[index];
                           return GestureDetector(
-                            onTap: () {
-                              // Handle menu item tap
-                            },
+                            onTap: () => controller.handleMenuTap(item.type),
                             child: Container(
                               decoration: BoxDecoration(
                                 color: Colors.white,
@@ -106,16 +111,12 @@ class _MenuPageState extends State<MenuPage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Icon(
-                                    Icons.menu, // Replace with appropriate icons
-                                    size: 40,
-                                    color: Colors.teal,
-                                  ),
+                                  Icon(item.icon, size: 30, color: AppColors().app_primary),
                                   SizedBox(height: 8),
                                   Text(
-                                    'Menu Item ${index + 1}', // Replace with actual menu item names
-                                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                                  ),
+                                    item.title,
+                                    style: TextStyle(fontWeight: FontWeight.bold),
+                                  )
                                 ],
                               ),
                             ),

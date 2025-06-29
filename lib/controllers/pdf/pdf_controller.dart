@@ -3,36 +3,30 @@ import 'package:pdfx/pdfx.dart';
 
 class PDFController extends GetxController {
   late PdfControllerPinch pdfController;
-  final currentPage = 0.obs;
-  final totalPages = 0.obs;
+  var currentPage = 0.obs;
+  var totalPages = 0.obs;
 
   @override
   void onInit() {
-    pdfController = PdfControllerPinch(
-      document: PdfDocument.openAsset('assets/pdf/flood_pdf.pdf'),
-    );
     super.onInit();
-    // to ensure the PDF is loaded before initializing
-    Future.delayed(Duration.zero, () => _initPdf());
-  }
+    pdfController = PdfControllerPinch(
+      document: PdfDocument.openAsset('assets/pdf/report.pdf'),
+      initialPage: 1,
+    );
 
-  Future<void> _initPdf() async {
     pdfController.document.then((doc) {
       totalPages.value = doc.pagesCount;
     });
   }
 
-  void jumpToPage(int index) {
-    print("Jumping to page: ${index + 1}");
-    pdfController.jumpToPage(index + 1);
-    currentPage.value = index;
-  }
-
   void onPageChanged(int page) {
-    print("Changed to page: $page");
     currentPage.value = page - 1;
   }
 
+  void jumpToPage(int index) {
+    pdfController.jumpToPage(index + 1);
+    currentPage.value = index;
+  }
 
   @override
   void onClose() {

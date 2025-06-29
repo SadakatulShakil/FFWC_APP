@@ -8,7 +8,10 @@ class SettingsController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    loadLanguagePreference();
+    // Delays update until after build phase
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      loadLanguagePreference();
+    });
   }
 
   Future<void> changeLanguage(int index) async {

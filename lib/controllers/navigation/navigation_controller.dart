@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../pages/dashboard.dart';
@@ -66,8 +67,8 @@ class NavigationController extends GetxController {
     if (index == 2 && Get.isRegistered<ProfileController>()) {
       Get.delete<ProfileController>(force: true);
     }
-    if (index == 3 && Get.isRegistered<MenuController>()) {
-      Get.delete<MenuController>(force: true);
+    if (index == 3 && Get.isRegistered<SubMenuController>()) {
+      Get.delete<SubMenuController>(force: true);
     }
 
     currentTab.value = index;

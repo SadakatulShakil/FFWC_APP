@@ -1,7 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+import '../../models/category_and_district_model.dart';
 
 class WaterLevelController extends GetxController {
   GoogleMapController? mapController;
@@ -15,10 +19,79 @@ class WaterLevelController extends GetxController {
     northeast: LatLng(26.5, 92.5), // Top-right of BD
   );
 
+  var stationCategories = <StationCategory>[].obs;
+  var activeTab = 0.obs;
+  var showingDistricts = false.obs;
+  var visibleDistricts = <Map<String, String>>[].obs;
+
+  void loadCategoryDistricts() {
+    // Mock JSON response (replace with actual API response if needed)
+    const jsonString = '''
+    {
+      "Station_detail_info": [
+        {
+          "Category_name": "সতর্কতা",
+          "District_info": [
+            {"Id": "1", "Name": "বরিশাল", "Count": "4"},
+            {"Id": "2", "Name": "ফরিদপুর", "Count": "2"},
+            {"Id": "3", "Name": "রংপুর", "Count": "1"}
+          ]
+        },
+        {
+          "Category_name": "বন্যা",
+          "District_info": [
+            {"Id": "1", "Name": "কক্সবাজার", "Count": "1"},
+            {"Id": "2", "Name": "সিলেট", "Count": "2"},
+            {"Id": "3", "Name": "বরিশাল", "Count": "3"}
+          ]
+        },
+        {
+          "Category_name": "তীব্র বন্যা",
+          "District_info": [
+            {"Id": "1", "Name": "ময়মনসিংহ", "Count": "4"},
+            {"Id": "2", "Name": "রংপুর", "Count": "1"}
+          ]
+        }
+      ]
+    }
+    ''';
+
+    final data = jsonDecode(jsonString);
+    var list = data['Station_detail_info'] as List;
+    stationCategories.value = list.map((e) => StationCategory.fromJson(e)).toList();
+  }
+
+  void showCategoryDistricts(String categoryName) {
+    final index = stationCategories.indexWhere((c) => c.categoryName == categoryName);
+    if (index != -1) {
+      activeTab.value = index;
+      final category = stationCategories[index];
+      visibleDistricts.value = category.districtInfo
+          .map((d) => {
+        'district': "${d.name} (${d.count})",
+        'category': categoryName,
+      })
+          .toList();
+      showingDistricts.value = true;
+    }
+  }
+
+
+  Map<String, int> get categoryCounts => {
+    for (var cat in stationCategories)
+      cat.categoryName: cat.districtInfo.length
+  };
+
+  void hideDistricts() {
+    showingDistricts.value = false;
+  }
+
+
   @override
   void onInit() {
     super.onInit();
     _loadMarkers();
+    loadCategoryDistricts();
   }
 
   void initializeMap(GoogleMapController controller) {

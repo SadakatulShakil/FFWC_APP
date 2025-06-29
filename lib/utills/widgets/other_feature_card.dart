@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
+import '../../pages/feature_details.dart';
+
 class OtherFeatureCard extends StatelessWidget {
   final String icon;
   final String label;
@@ -14,7 +16,7 @@ class OtherFeatureCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-       Get.to(() => PDFViewerPage(),
+       Get.to(() => InfoGraphicalView(),
          transition: Transition.rightToLeft,
          duration: Duration(milliseconds: 500),
        );
