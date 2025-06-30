@@ -56,6 +56,7 @@ dependencies:
   flutter_pdfview: ^1.4.0+1
   pdfx: ^2.9.2
   marquee: ^2.3.0
+  flutter_screenutil: ^5.9.3
   permission_handler: ^12.0.0+1
   flutter_local_notifications: ^19.2.1
 
@@ -87,6 +88,14 @@ flutter:
     - assets/gif/
     - assets/svg/
     - assets/pdf/
+    - assets/fonts/
+
+  fonts:
+    - family: NotoSansBengali
+      fonts:
+        - asset: assets/fonts/NotoSansBengali-Regular.ttf
+
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:

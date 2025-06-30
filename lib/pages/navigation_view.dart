@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../Utills/AppColors.dart';
@@ -43,8 +44,11 @@ class NavigationView extends GetView<NavigationController> {
                   ? AppColors().app_primary
                   : Colors.black54) ),
           Obx(()=> Text( label,
-            style: TextStyle( fontWeight: controller.currentTab == index
-                ? FontWeight.bold
+            style: TextStyle(
+              fontFamily: 'NotoSansBengali',
+                fontSize: 16.sp,
+                fontWeight: controller.currentTab == index
+                ? FontWeight.w600
                 : FontWeight.normal,
               color:  controller.currentTab == index
                   ? AppColors().app_primary

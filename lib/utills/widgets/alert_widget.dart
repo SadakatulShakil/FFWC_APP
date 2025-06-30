@@ -1,5 +1,6 @@
 import 'package:ffwc_app/models/alertFeatureModel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'alert_feature_card.dart';
 
@@ -13,22 +14,22 @@ class AlertWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
-          BoxShadow(color: Colors.grey.shade300, blurRadius: 4, offset: Offset(0, 2))
+          BoxShadow(color: Colors.grey.shade300, blurRadius: 4.r, offset: Offset(0, 2))
         ],
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 8,),
+          SizedBox(height: 8.h,),
           SizedBox(
-            height: 250,
+            height: 250.h,
             child: ListView.separated(
               scrollDirection: Axis.vertical,
-              padding: EdgeInsets.symmetric(horizontal: 2),
+              padding: EdgeInsets.symmetric(horizontal: 2.w),
               itemCount: items.length,
-              separatorBuilder: (_, __) => SizedBox(width: 8),
+              separatorBuilder: (_, __) => SizedBox(width: 8.w),
               itemBuilder: (context, i) {
                 return AlertFeatureCard(
                   type: items[i].type,

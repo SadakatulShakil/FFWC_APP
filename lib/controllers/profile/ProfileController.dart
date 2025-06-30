@@ -11,6 +11,7 @@ import '../../services/user_pref_service.dart';
 class ProfileController extends GetxController with GetSingleTickerProviderStateMixin {
 
   late TabController tabController = TabController(length: 3, vsync: this);
+  RxList<bool> selectedLanguage = [false, true].obs; // Default Bangla
 
   final userService = UserPrefService(); //User service for replacement of Shared pref
 
@@ -52,6 +53,9 @@ class ProfileController extends GetxController with GetSingleTickerProviderState
   @override
   void onInit() {
     super.onInit();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      loadLanguagePreference();
+    });
     getSharedPrefData();
   }
 
@@ -262,20 +266,22 @@ class ProfileController extends GetxController with GetSingleTickerProviderState
   }
 
 
-  List<bool> selectedLanguage = [false, true].obs;
-  Future changeLanguage(int index) async {
-    for (int buttonIndex = 0; buttonIndex < selectedLanguage.length; buttonIndex++) {
-      if (buttonIndex == index) {
-        selectedLanguage[buttonIndex] = true;
-      } else {
-        selectedLanguage[buttonIndex] = false;
-      }
-    }
-    if(index == 0) {
-      await Get.updateLocale(Locale('en', 'US'));
-    } else {
-      await Get.updateLocale(Locale('bn', 'BD'));
-    }
+  Future<void> changeLanguage(int index) async {
+    selectedLanguage.value = [index == 0, index == 1];
+
+    // Save language to shared prefs
+    final langCode = index == 0 ? 'en' : 'bn';
+    await UserPrefService().saveAppLanguage(langCode);
+
+    // Update locale
+    await Get.updateLocale(Locale(langCode));
+  }
+
+  Future<void> loadLanguagePreference() async {
+    final langCode = UserPrefService().appLanguage;
+
+    selectedLanguage.value = [langCode == 'en', langCode == 'bn'];
+    await Get.updateLocale(Locale(langCode));
   }
 
 }

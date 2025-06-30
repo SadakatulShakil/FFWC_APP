@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:marquee/marquee.dart';
 
@@ -31,7 +32,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ///Background gif or image for animation
                 Container(
                   padding: EdgeInsets.fromLTRB(16, 35, 16, 16),
-                  height: 225,
+                  height: 225.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -42,7 +43,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 8),
+                      SizedBox(height: 8.h),
                       /// Location Info
                       GestureDetector(
                         onTap: () {
@@ -51,20 +52,21 @@ class _DashboardPageState extends State<DashboardPage> {
                         child: Row(
                           children: [
                             Text(
-                              "Mirpur DOHS, Dhaka, Bangladesh",
+                              "মিরপুর ডিওএইচএস, ঢাকা, বাংলাদেশ",
                               style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 14,
+                                fontFamily: 'NotoSansBengali',
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14.sp,
                                 color: Colors.white,
                               ),
                             ),
-                            SizedBox(width: 8),
+                            SizedBox(width: 8.w),
                             Icon(Icons.keyboard_arrow_down_sharp,
-                                color: Colors.white, size: 20),
+                                color: Colors.white, size: 20.r),
                           ],
                         ),
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 5.h),
                       /// Temperature + Weather Info Row
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -77,15 +79,17 @@ class _DashboardPageState extends State<DashboardPage> {
                                 TextSpan(
                                   text: controller.weatherData[0].temperature,
                                   style: TextStyle(
-                                    fontSize: 70,
-                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'NotoSansBengali',
+                                    fontSize: 64.sp,
+                                    fontWeight: FontWeight.w900,
                                     color: Colors.white,
                                   ),
                                 ),
                                 TextSpan(
                                   text: '°C',
                                   style: TextStyle(
-                                    fontSize: 30,
+                                    fontFamily: 'NotoSansBengali',
+                                    fontSize: 24.sp,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.white,
                                   ),
@@ -97,11 +101,15 @@ class _DashboardPageState extends State<DashboardPage> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Image.asset('assets/images/weather_icon.png', width: 70, height: 70),
-                              SizedBox(height: 4),
+                              Image.asset('assets/images/weather_icon.png', width: 70.w, height: 70.h),
+                              SizedBox(height: 4.h),
                               Text(
-                                'Partially Cloudy',
-                                style: TextStyle(fontSize: 14, color: Colors.white),
+                                'আংশিক মেঘলা',
+                                style: TextStyle(
+                                    fontFamily: 'NotoSansBengali',
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 12.sp,
+                                    color: Colors.white),
                               ),
                             ],
 
@@ -109,58 +117,61 @@ class _DashboardPageState extends State<DashboardPage> {
                         ],
                       ),
                       /// bottom Small Details in weather data
-                      SizedBox(height: 10),
+                      SizedBox(height: 10.h),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            "Feels like 36°C",
+                            "৩৬° সেলসিয়াস মনে হচ্ছে",
                             style: TextStyle(
-                              fontSize: 14,
+                              fontFamily: 'NotoSansBengali',
+                              fontSize: 16.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(width: 12),
+                          SizedBox(width: 8.w),
                           Container(
-                            height: 16,
-                            width: 1,
+                            height: 16.h,
+                            width: 1.w,
                             color: Colors.cyan,
                           ),
-                          SizedBox(width: 12),
-                          Icon(Icons.arrow_drop_up_outlined, color: Colors.orange, size: 20),
-                          SizedBox(width: 8),
+                          SizedBox(width: 5.w),
+                          Icon(Icons.arrow_drop_up_outlined, color: Colors.orange, size: 20.r),
                           Text(
-                            "38°C",
+                            "৪১°C",
                             style: TextStyle(
-                              fontSize: 14,
+                              fontFamily: 'NotoSansBengali',
+                              fontSize: 16.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          Icon(Icons.arrow_drop_down, color: Colors.teal, size: 20),
-                          SizedBox(width: 8),
+                          SizedBox(width: 5.w),
+                          Icon(Icons.arrow_drop_down, color: Colors.teal, size: 22.r),
                           Text(
-                            "29%",
+                            "২৪°C",
                             style: TextStyle(
-                              fontSize: 14,
+                              fontFamily: 'NotoSansBengali',
+                              fontSize: 16.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
                           ),
-                          SizedBox(width: 12),
+                          SizedBox(width: 8.w),
                           Container(
-                            height: 16,
-                            width: 1,
+                            height: 16.h,
+                            width: 1.w,
                             color: Colors.cyan,
                           ),
-                          SizedBox(width: 12),
-                          Icon(Icons.water_outlined, color: Colors.blue, size: 20),
-                          SizedBox(width: 8),
+                          SizedBox(width: 12.w),
+                          Icon(Icons.water_outlined, color: Colors.blue, size: 20.r),
+                          SizedBox(width: 8.w),
                           Text(
-                            "29%",
+                            "৩১%",
                             style: TextStyle(
-                              fontSize: 14,
+                              fontFamily: 'NotoSansBengali',
+                              fontSize: 16.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -173,67 +184,72 @@ class _DashboardPageState extends State<DashboardPage> {
                 ),
                 /// Curved section and List of content
                 Positioned(
-                  top: 200,
+                  top: 205.h,
                   left: 0,
                   right: 0,
                   bottom: 0,
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(25),
-                      topLeft: Radius.circular(25),
+                      topRight: Radius.circular(25.r),
+                      topLeft: Radius.circular(25.r),
                     ),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(25),
-                          topLeft: Radius.circular(25),
+                          topRight: Radius.circular(25.r),
+                          topLeft: Radius.circular(25.r),
                         ),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black12,
-                            blurRadius: 10,
-                            offset: Offset(0, 2),
+                            blurRadius: 10.r,
+                            offset: Offset(0, 2.h),
                           ),
                         ],
                       ),
                       child: ListView(
-                        padding: EdgeInsets.symmetric(vertical: 0, horizontal: 0),
+                        padding: EdgeInsets.symmetric(vertical: 0.h, horizontal: 0.w),
                         children: [
-                          // First: Station features
+                          // Station Features
                           ...controller.station_features.map((feature) => StationFeatureWidget(
                             title: feature.title,
                             items: feature.items,
                           )),
 
-                          SizedBox(height: 5),
+                          SizedBox(height: 5.h),
 
                           Container(
-                            height: 40,
-                            color: Color(0xFFFFEFF0),
+                            height: 50.h,
+                            color: const Color(0xFFFFEFF0),
                             child: Marquee(
-                              text: '🚨 বন্যা সতর্কতা: (২৩ জুন ২০২৫) তিস্তা, ধরলা ও দুধকুমার নদীসমূহের পানি আগামী ০২ দিন বৃদ্ধি পেতে পারে এবং আগামী ৪৮ ঘণ্টায় তিস্তা নদীর পানি সতর্কসীমায় (বিপদসীমার কাছাকাছি) প্রবাহিত হতে পারে। ✦✦ বিস্তারিত পূর্বাভাসের জন্য দৈনিক প্রতিবেদন দেখুন।',
-                              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red, fontSize: 16),
+                              text:
+                              '🚨 বন্যা সতর্কতা: (২৩ জুন ২০২৫) তিস্তা, ধরলা ও দুধকুমার নদীসমূহের পানি আগামী ০২ দিন বৃদ্ধি পেতে পারে এবং আগামী ৪৮ ঘণ্টায় তিস্তা নদীর পানি সতর্কসীমায় (বিপদসীমার কাছাকাছি) প্রবাহিত হতে পারে। ✦✦ বিস্তারিত পূর্বাভাসের জন্য দৈনিক প্রতিবেদন দেখুন।',
+                              style: TextStyle(
+                                fontFamily: 'NotoSansBengali',
+                                fontWeight: FontWeight.w600,
+                                color: Colors.red,
+                                fontSize: 16.sp,
+                              ),
                               scrollAxis: Axis.horizontal,
                               crossAxisAlignment: CrossAxisAlignment.center,
-                              blankSpace: 20.0,
+                              blankSpace: 20.0.w,
                               velocity: 100.0,
-                              pauseAfterRound: Duration(seconds: 1),
-                              startPadding: 5.0,
-                              accelerationDuration: Duration(seconds: 1),
+                              pauseAfterRound: const Duration(seconds: 1),
+                              startPadding: 5.0.w,
+                              accelerationDuration: const Duration(seconds: 1),
                               accelerationCurve: Curves.linear,
-                              decelerationDuration: Duration(milliseconds: 500),
+                              decelerationDuration: const Duration(milliseconds: 500),
                               decelerationCurve: Curves.easeOut,
                             ),
                           ),
 
-                          // Second: Other features
                           ...controller.other_features.map((feature) => OtherFeatureSectionWidget(
                             title: feature.title,
                             items: feature.items,
                           )),
 
-                          SizedBox(height: 8),
+                          SizedBox(height: 8.h),
 
                           ...controller.alert_features.map((feature) => AlertWidget(
                             items: feature.items,

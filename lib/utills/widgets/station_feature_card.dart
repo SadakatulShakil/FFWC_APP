@@ -2,6 +2,7 @@ import 'package:ffwc_app/pages/station_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StationFeatureCard extends StatelessWidget {
   final String title;
@@ -32,12 +33,11 @@ class StationFeatureCard extends StatelessWidget {
         ));
       },
       child: Container(
-        width: 130,
-        height: 150,
+        width: 146.w,
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(12.r),
               child: SvgPicture.asset(
                 getBackgroundSvg(),
                 width: double.infinity,
@@ -45,35 +45,46 @@ class StationFeatureCard extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
             ),
-            Container(
-            ),
             Padding(
-              padding: const EdgeInsets.all(10),
+              padding: EdgeInsets.all(10.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(title,
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black)),
-                  Spacer(),
-                  Text(value,
-                      style: TextStyle(
-                          fontSize: 50,
-                          fontWeight: FontWeight.bold,
-                          color: title.contains("severe_flood".tr)
-                              ? Colors.pinkAccent.shade400
-                              : title.contains("flood".tr)
-                              ? Colors.red.shade400
-                              : title.contains("warning".tr)
-                              ? Colors.orange.shade400
-                              : Colors.green.shade400
-                      )
+                  Text(
+                    title,
+                    style: TextStyle(
+                      fontFamily: 'NotoSansBengali',
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black,
+                    ),
                   ),
-                  SizedBox(height: 4),
-                  Text(label,
-                      style: TextStyle(fontSize: 12, color: Colors.black)),
+                  Spacer(),
+                  Text(
+                    value,
+                    style: TextStyle(
+                      fontFamily: 'NotoSansBengali',
+                      fontSize: 56.sp,
+                      fontWeight: FontWeight.w800,
+                      color: title.contains("severe_flood".tr)
+                          ? Colors.pinkAccent.shade400
+                          : title.contains("flood".tr)
+                          ? Colors.red.shade400
+                          : title.contains("warning".tr)
+                          ? Colors.orange.shade400
+                          : Colors.green.shade400,
+                    ),
+                  ),
+                  SizedBox(height: 4.h),
+                  Text(
+                    label,
+                    style: TextStyle(
+                      fontFamily: 'NotoSansBengali',
+                      fontSize: 12.sp,
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ],
               ),
             )

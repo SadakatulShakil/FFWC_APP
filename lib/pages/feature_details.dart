@@ -183,7 +183,7 @@ class InfoGraphicalView extends StatelessWidget {
 
               /// Floating modal overlay (appears on top of map)
               Positioned(
-                top: 180,
+                top: 200,
                 left: 5,
                 right: 5,
                 child: Obx(() => controller.showingDistricts.value
@@ -266,7 +266,7 @@ class InfoGraphicalView extends StatelessWidget {
         }
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 10),
+        padding: EdgeInsets.symmetric(vertical: 14),
         decoration: BoxDecoration(
           color: backColor,
           borderRadius: BorderRadius.only(
@@ -274,15 +274,17 @@ class InfoGraphicalView extends StatelessWidget {
             topRight: index == ctrl.stationCategories.length - 1 ? Radius.circular(12) : Radius.zero,
           ),
         ),
-        child: Column(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               title,
               style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
             ),
+            const SizedBox(width: 4),
             Obx(() => Text(
               "(${ctrl.categoryCounts[title] ?? 0})",
-              style: TextStyle(fontSize: 12, color: Colors.grey.shade700),
+              style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
             )),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:ffwc_app/Utills/AppColors.dart';
 import 'package:ffwc_app/pages/pdf_preview_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -16,38 +17,51 @@ class OtherFeatureCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-       Get.to(() => InfoGraphicalView(),
-         transition: Transition.rightToLeft,
-         duration: Duration(milliseconds: 500),
-       );
+        Get.to(
+              () => InfoGraphicalView(),
+          transition: Transition.rightToLeft,
+          duration: Duration(milliseconds: 300),
+        );
       },
       child: Padding(
-        padding: const EdgeInsets.all(5.0),
+        padding: EdgeInsets.all(5.w),
         child: Container(
-          width: 100,
+          width: 110.w,
           decoration: BoxDecoration(
             color: AppColors().app_secondary_bg,
-            borderRadius: BorderRadius.circular(12),
+            borderRadius: BorderRadius.circular(12.r),
             boxShadow: [
-              BoxShadow(color:
-              AppColors().app_secondary_bg,
-                  blurRadius: 4,
-                  offset: Offset(2, 2))
+              BoxShadow(
+                color: AppColors().app_secondary_bg,
+                blurRadius: 4.r,
+                offset: Offset(2, 2),
+              ),
             ],
           ),
           child: Padding(
-            padding: EdgeInsets.only(left: 12.0, right: 14.0, top: 10.0, bottom: 10.0),
+            padding: EdgeInsets.symmetric(
+              horizontal: 12.w,
+              vertical: 10.h,
+            ),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SvgPicture.asset(
                   icon,
+                  width: 40.w,
+                  height: 40.h,
                 ),
-                SizedBox(height: 10),
-                Text(label, style: TextStyle(fontSize: 12,
-                    fontWeight: FontWeight.w500),
-                    textAlign: TextAlign.start),
+                SizedBox(height: 10.h),
+                Text(
+                  label,
+                  style: TextStyle(
+                    fontFamily: 'NotoSansBengali',
+                    fontSize: 14.sp,
+                    letterSpacing: 0.3.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
               ],
             ),
           ),

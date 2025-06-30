@@ -13,6 +13,7 @@ class WaterLevelController extends GetxController {
   var zoomLevel = 6.8.obs;
   var apiData = [].obs;
 
+  final LatLng districtCenter = LatLng(25.7519564000377, 89.2575465497694);
   final LatLng bangladeshCenter = const LatLng(23.685, 90.3563);
   final LatLngBounds bangladeshBounds = LatLngBounds(
     southwest: LatLng(20.5, 88.0), // Bottom-left of BD
