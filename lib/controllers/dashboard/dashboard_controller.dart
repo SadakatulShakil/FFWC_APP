@@ -54,8 +54,8 @@ class DashboardController extends GetxController {
         items: [
           OtherFeaturesItemModel(icon: 'assets/svg/rainfall.svg',  label: 'forecast_bulletin'.tr),
           OtherFeaturesItemModel(icon: 'assets/svg/bulletin.svg', label: 'rainfall_info'.tr),
-          OtherFeaturesItemModel(icon: 'assets/svg/water_level.svg', label: 'water_level_forecast'.tr),
           OtherFeaturesItemModel(icon: 'assets/svg/bulletin.svg', label: 'inundation_map'.tr),
+          OtherFeaturesItemModel(icon: 'assets/svg/water_level.svg', label: 'water_level_forecast'.tr),
         ],
       ),
     ]);

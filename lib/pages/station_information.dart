@@ -54,7 +54,7 @@ class _StationInformationState extends State<StationInformation> with SingleTick
             children: [
               /// AppBar background
               Container(
-                padding: EdgeInsets.fromLTRB(16.w, 40.h, 16.w, 16.h),
+                padding: EdgeInsets.fromLTRB(16.w, 50.h, 16.w, 16.h),
                 height: 150.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -117,7 +117,7 @@ class _StationInformationState extends State<StationInformation> with SingleTick
 
               /// Tab section
               Positioned(
-                top: 100.h,
+                top: 110.h,
                 left: 0,
                 right: 0,
                 bottom: 0,

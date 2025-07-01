@@ -36,8 +36,8 @@ class StationInfoListView extends StatelessWidget {
                 fontFamily: 'NotoSansBengali',
                 fontWeight: FontWeight.w400,
               ),
-              prefixIcon: Icon(Icons.search, size: 22.sp),
-              prefixIconColor: AppColors().app_primary,
+              suffixIcon: Icon(Icons.search, size: 22.sp),
+              suffixIconColor: AppColors().app_primary,
               contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.r),

@@ -34,7 +34,7 @@ class InfoGraphicalView extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(16.w, 40.h, 16.w, 16.h),
+                padding: EdgeInsets.fromLTRB(16.w, 50.h, 16.w, 16.h),
                 height: 150.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -104,10 +104,14 @@ class InfoGraphicalView extends StatelessWidget {
                 ),
               ),
               Positioned(
-                top: 60.h,
+                top: 100.h,
                 left: 0,
                 right: 0,
-                child: SafeArea(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(25.r),
+                    topLeft: Radius.circular(25.r),
+                  ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,

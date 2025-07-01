@@ -1,5 +1,6 @@
 import 'package:ffwc_app/Utills/AppColors.dart';
 import 'package:ffwc_app/pages/pdf_preview_page.dart';
+import 'package:ffwc_app/pages/rainfall_information.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,10 +18,37 @@ class OtherFeatureCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.to(
-              () => InfoGraphicalView(),
-          transition: Transition.rightToLeft,
-          duration: Duration(milliseconds: 300),
+
+        label == 'forecast_bulletin'.tr
+            ? Get.to(
+                () => PDFPreviewPage(),
+                transition: Transition.rightToLeft,
+                duration: Duration(milliseconds: 300),
+              )
+            : label == 'rainfall_info'.tr
+            ? Get.to(
+                () => RainfallInformation(),
+                transition: Transition.rightToLeft,
+                duration: Duration(milliseconds: 300),
+              )
+            : label == 'inundation_map'.tr
+            ? Get.to(
+                () => InfoGraphicalView(),
+                transition: Transition.rightToLeft,
+                duration: Duration(milliseconds: 300),
+              )
+            : label == 'water_level_forecast'.tr
+            ? Get.snackbar('Alert', 'This section is under development',
+                snackPosition: SnackPosition.TOP,
+                backgroundColor: Colors.red.withOpacity(0.8),
+                colorText: Colors.white,
+                duration: Duration(seconds: 2),
+              )
+            : Get.snackbar('Alert', 'This section is under development',
+                snackPosition: SnackPosition.TOP,
+                backgroundColor: Colors.red.withOpacity(0.8),
+                colorText: Colors.white,
+                duration: Duration(seconds: 2),
         );
       },
       child: Padding(

@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:ffwc_app/controllers/theme/theme_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../Utills/AppColors.dart';
@@ -32,8 +33,8 @@ class _ProfilePageState extends State<ProfilePage> {
           child: Stack(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(16, 40, 16, 16),
-                height: 200,
+                padding: EdgeInsets.fromLTRB(16.w, 50.h, 16.w, 16.h),
+                height: 200.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -102,7 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               /// Curved section and List of content
               Positioned(
-                top: 100,
+                top: 110.h,
                 left: 0,
                 right: 0,
                 bottom: 0,
@@ -145,9 +146,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                             radius: 63,
                                             backgroundImage: controller.selectedImagePath.value.isNotEmpty
                                                 ? FileImage(File(controller.selectedImagePath.value)) // Show preview
-                                                : (controller.photo.value.isNotEmpty
-                                                ? NetworkImage(controller.photo.value) // Show saved image
-                                                : AssetImage("assets/images/default_avatar.png") // Fallback image
+                                                : AssetImage("assets/images/profile.png" // Fallback image
                                             ) as ImageProvider, // Ensures correct type
                                           ),
                                         );
@@ -231,7 +230,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Container(
-                                            padding: EdgeInsets.only(top: 16),
+                                            padding: EdgeInsets.only(top: 6),
                                             width: MediaQuery.of(context).size.width,
                                             child: TextField(
                                               controller: controller.nameController,
@@ -249,8 +248,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                               cursorColor: AppColors().app_primary,
                                             ),
                                           ),
-
-                                          SizedBox(height: 16),
 
                                           Container(
                                             padding: EdgeInsets.only(top: 16),
@@ -272,10 +269,10 @@ class _ProfilePageState extends State<ProfilePage> {
                                             ),
                                           ),
 
-                                          SizedBox(height: 16),
+                                          SizedBox(height: 6),
 
                                           Container(
-                                            padding: EdgeInsets.only(top: 16),
+                                            padding: EdgeInsets.only(top: 12),
                                             width: MediaQuery.of(context).size.width,
                                             child: TextField(
                                               controller: controller.addressController,
@@ -343,7 +340,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                fillColor: AppColors().app_primary_bg,
                                                selectedColor: AppColors().app_primary,
                                                color: Colors.black54,
-                                               textStyle: TextStyle(fontSize: 16),
+                                               textStyle: TextStyle(fontSize: 16.sp),
                                                isSelected: controller.selectedLanguage,
                                                onPressed: (int index) {
                                                  controller.changeLanguage(index);
@@ -389,7 +386,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 fillColor: AppColors().app_primary_bg,
                                                 selectedColor: AppColors().app_primary,
                                                 color: Colors.black54,
-                                                textStyle: TextStyle(fontSize: 16),
+                                                textStyle: TextStyle(fontSize: 16.sp),
                                                 isSelected: [
                                                   theme_controller.themeMode.value == ThemeMode.dark,
                                                   theme_controller.themeMode.value == ThemeMode.light,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../Utills/AppColors.dart';
@@ -28,8 +29,8 @@ class _SettingsPageState extends State<SettingsPage> {
             children: [
               ///Background gradiant for appbar
               Container(
-                padding: EdgeInsets.fromLTRB(16, 40, 16, 16),
-                height: 200,
+                padding: EdgeInsets.fromLTRB(16.w, 50.h, 16.w, 16.h),
+                height: 200.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -56,7 +57,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
               /// Curved section and List of content
               Positioned(
-                top: 100,
+                top: 110.h,
                 left: 0,
                 right: 0,
                 bottom: 0,
