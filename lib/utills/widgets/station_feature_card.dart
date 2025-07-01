@@ -59,7 +59,6 @@ class StationFeatureCard extends StatelessWidget {
                       color: Colors.black,
                     ),
                   ),
-                  Spacer(),
                   Text(
                     value,
                     style: TextStyle(

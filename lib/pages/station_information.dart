@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../utills/widgets/station_info_graphical_view.dart';
 import '../utills/widgets/station_info_list_view.dart';
@@ -12,16 +12,19 @@ class StationInformation extends StatefulWidget {
   final String value;
   final String label;
 
-  StationInformation({super.key, this.tabIndex = 0,
+  StationInformation({
+    super.key,
+    this.tabIndex = 0,
     required this.title,
     required this.value,
-    required this.label});
+    required this.label,
+  });
+
   @override
   State<StationInformation> createState() => _StationInformationState();
 }
 
-class _StationInformationState extends State<StationInformation> with SingleTickerProviderStateMixin{
-
+class _StationInformationState extends State<StationInformation> with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -49,10 +52,10 @@ class _StationInformationState extends State<StationInformation> with SingleTick
           height: double.infinity,
           child: Stack(
             children: [
-              ///Background gradiant for appbar
+              /// AppBar background
               Container(
-                padding: EdgeInsets.fromLTRB(16, 40, 16, 16),
-                height: 150,
+                padding: EdgeInsets.fromLTRB(16.w, 40.h, 16.w, 16.h),
+                height: 150.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -67,20 +70,22 @@ class _StationInformationState extends State<StationInformation> with SingleTick
                     GestureDetector(
                       onTap: () => Get.back(),
                       child: Padding(
-                        padding:  EdgeInsets.all(12.0),
-                        child: Icon(Icons.arrow_back_ios, color: Colors.white, size: 18,),
+                        padding: EdgeInsets.all(10.w),
+                        child: Icon(Icons.arrow_back_ios, color: Colors.white, size: 20.sp),
                       ),
                     ),
                     Expanded(
                       child: Padding(
-                        padding:  EdgeInsets.only(top: 8.0, bottom: 8.0),
+                        padding: EdgeInsets.symmetric(vertical: 8.h),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
                             'স্টেশনের বর্তমান অবস্থা',
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NotoSansBengali',
+                              letterSpacing: 0.3.sp,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18.sp,
                               color: Colors.white,
                             ),
                           ),
@@ -88,127 +93,149 @@ class _StationInformationState extends State<StationInformation> with SingleTick
                       ),
                     ),
                     Padding(
-                      padding:  EdgeInsets.only(top: 8.0, bottom: 8.0),
+                      padding: EdgeInsets.symmetric(vertical: 8.h),
                       child: Align(
                         alignment: Alignment.topLeft,
-                        child: Text( widget.title,
+                        child: Text(
+                          widget.title,
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            fontSize: 16.sp,
+                            fontFamily: 'NotoSansBengali',
+                            fontWeight: FontWeight.w600,
                             color: Color(0xFF00E5CA),
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 10.0, bottom: 12.0, right: 8.0),
-                      child: Icon(Icons.keyboard_arrow_down_rounded, color: Color(0xFF00E5CA), size: 18,),
+                      padding: EdgeInsets.only(top: 10.h, bottom: 12.h, right: 8.w),
+                      child: Icon(Icons.keyboard_arrow_down_rounded, color: Color(0xFF00E5CA), size: 18.sp),
                     ),
                   ],
                 ),
               ),
 
-              /// Curved section and List of content
+              /// Tab section
               Positioned(
-                top: 100,
+                top: 100.h,
                 left: 0,
                 right: 0,
                 bottom: 0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(25),
-                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25.r),
+                    topLeft: Radius.circular(25.r),
                   ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(25),
-                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25.r),
+                        topLeft: Radius.circular(25.r),
                       ),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black12,
-                          blurRadius: 10,
+                          blurRadius: 10.r,
                           offset: Offset(0, 2),
                         ),
                       ],
                     ),
-                    child: Column(
-                      children: [
-                        // Add TabBar
-                        SizedBox(height: 8),
-                        Text('সর্বশেষ আপডেট: রবিবার ২৪ জুন, ২০২৪ রাত ৯.০০ টা',
-                          style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue.shade900,
-                          ),
-                        ),
-                        SizedBox(height: 8),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                          child: Container(
-                            decoration: BoxDecoration(
+                    child: Container(
+                      color: Colors.white,
+                      child: Column(
+                        children: [
+                          SizedBox(height: 8.h),
+                          Text(
+                            'সর্বশেষ আপডেট: রবিবার ২৪ জুন, ২০২৪ রাত ৯.০০ টা',
+                            style: TextStyle(
+                              fontSize: 14.sp,
+                              fontFamily: 'NotoSansBengali',
+                              letterSpacing: 0.3.sp,
+                              fontWeight: FontWeight.w700,
                               color: Colors.blue.shade900,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(12),
-                                topRight: Radius.circular(12),
+                            ),
+                          ),
+                          SizedBox(height: 8.h),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.w),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.blue.shade900,
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(12.r),
+                                  topRight: Radius.circular(12.r),
+                                ),
+                              ),
+                              child: TabBar(
+                                controller: _tabController,
+                                indicatorSize: TabBarIndicatorSize.tab,
+                                indicator: BoxDecoration(
+                                  gradient: LinearGradient(
+                                    colors: [Color(0xFF5AAFE5), Color(0xFF3B8DD2)],
+                                    begin: Alignment.topLeft,
+                                    end: Alignment.bottomRight,
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(12.r),
+                                    topRight: Radius.circular(12.r),
+                                  ),
+                                ),
+                                labelColor: Colors.white,
+                                unselectedLabelColor: Colors.white70,
+                                tabs: [
+                                  Tab(
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.map, size: 20.sp),
+                                        SizedBox(width: 8.w),
+                                        Text(
+                                          "মানচিত্র দেখুন",
+                                          style: TextStyle(
+                                            fontFamily: 'NotoSansBengali',
+                                            letterSpacing: 0.3.sp,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 14.sp,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Tab(
+                                    child: Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Icon(Icons.format_list_bulleted, size: 20.sp),
+                                        SizedBox(width: 8.w),
+                                        Text(
+                                          "তালিকা দেখুন",
+                                          style: TextStyle(
+                                            fontFamily: 'NotoSansBengali',
+                                            letterSpacing: 0.3.sp,
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 14.sp,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            child: TabBar(
+                          ),
+                          Expanded(
+                            child: TabBarView(
+                              physics: NeverScrollableScrollPhysics(),
                               controller: _tabController,
-                              indicatorSize: TabBarIndicatorSize.tab,
-                              indicator: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [Color(0xFF5AAFE5), Color(0xFF3B8DD2)],
-                                  begin: Alignment.topLeft,
-                                  end: Alignment.bottomRight,
-                                ),
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(12),
-                                  topRight: Radius.circular(12),
-                              )
-                              ),
-                              labelColor: Colors.white,
-                              unselectedLabelColor: Colors.white70,
-                              tabs: [
-                                Tab(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(Icons.map),
-                                      SizedBox(width: 8),
-                                      Text("মানচিত্র দেখুন"),
-                                    ],
-                                  ),
-                                ),
-                                Tab(
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Icon(Icons.format_list_bulleted),
-                                      SizedBox(width: 8),
-                                      Text("তালিকা দেখুন"),
-                                    ],
-                                  ),
-                                ),
+                              children: [
+                                Center(child: StationInfoGraphicalView()),
+                                Center(child: StationInfoListView()),
                               ],
                             ),
                           ),
-                        ),
-                        // TabBarView
-                        Expanded(
-                          child: TabBarView(
-                            physics: const NeverScrollableScrollPhysics(),
-                            controller: _tabController,
-                            children: [
-                              Center(child: StationInfoGraphicalView()),
-                              Center(child: StationInfoListView()),
-                            ],
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),

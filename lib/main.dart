@@ -35,6 +35,7 @@ void main() async {
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
       );
+      await FirebaseService().initNotifications();
     }
   } on Exception catch (e, stack) {
     print('🔥 Location Initialization Error: $e');
@@ -53,12 +54,10 @@ void main() async {
 class MyApp extends StatelessWidget {
   final MobileController mobileController = Get.put(MobileController());
   final themeController = Get.find<ThemeController>();
-  final FirebaseService _firebaseService = FirebaseService();
   final String savedLang;
   MyApp(this.savedLang);
   @override
   Widget build(BuildContext context) {
-    _firebaseService.initNotifications();
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
       statusBarColor: Colors.transparent, // makes status bar transparent
       statusBarIconBrightness: Brightness.dark, // or Brightness.light depending on text color

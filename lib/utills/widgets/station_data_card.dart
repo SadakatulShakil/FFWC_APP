@@ -1,7 +1,8 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../Utills/AppColors.dart';
 import '../../models/station_data_model.dart';
 
 class StationCard extends StatelessWidget {
@@ -18,55 +19,92 @@ class StationCard extends StatelessWidget {
         : Colors.black;
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5),
-      padding: EdgeInsets.all(8),
+      margin: EdgeInsets.symmetric(vertical: 5.h),
+      padding: EdgeInsets.all(8.w),
       decoration: BoxDecoration(
         color: Colors.blue.shade50,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(10.r),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('স্টেশনের নাম: ${station.name}', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
+          Text(
+            'স্টেশনের নাম: ${station.name}',
+            style: TextStyle(
+              color: AppColors().app_primary,
+              fontSize: 16.sp,
+              fontFamily: 'NotoSansBengali',
+              fontWeight: FontWeight.w700,
+            ),
+          ),
           Text.rich(
             TextSpan(
-              style: TextStyle(fontSize: 14, color: Colors.black, height: 1.5),
+              style: TextStyle(
+                fontSize: 14.sp,
+                color: Colors.black,
+                fontWeight: FontWeight.w600,
+                height: 1.5,
+              ),
               children: [
                 TextSpan(text: 'নদীর নাম: '),
                 TextSpan(
                   text: '${station.riverName}  ',
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(
+                    color: AppColors().app_primary,
+                    fontSize: 14.sp,
+                    fontFamily: 'NotoSansBengali',
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 TextSpan(text: 'উপজেলা: '),
                 TextSpan(
                   text: '${station.upazila}  ',
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(
+                    color: AppColors().app_primary,
+                    fontSize: 14.sp,
+                    fontFamily: 'NotoSansBengali',
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 TextSpan(text: 'বিপদের মাত্রা: '),
                 TextSpan(
                   text: '${station.dangerLevel} ',
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(
+                    color: AppColors().app_primary,
+                    fontSize: 14.sp,
+                    fontFamily: 'NotoSansBengali',
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
-                TextSpan(text: 'পানির স্তর: ',),
+                TextSpan(text: 'পানির স্তর: '),
                 TextSpan(
                   text: '${station.currentLevel}\n',
-                  style: TextStyle(color: Colors.blue),
+                  style: TextStyle(
+                    color: AppColors().app_primary,
+                    fontSize: 14.sp,
+                    fontFamily: 'NotoSansBengali',
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 TextSpan(text: 'গত 3 ঘন্টা: '),
                 TextSpan(
                   text: '${station.status} ',
-                  style: TextStyle(color: statusColor),
+                  style: TextStyle(
+                    color: AppColors().app_primary,
+                    fontSize: 14.sp,
+                    fontFamily: 'NotoSansBengali',
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 TextSpan(text: ' (${station.date})'),
-                TextSpan(text: ' উত্থান/পতন: ',),
+                TextSpan(text: ' উত্থান/পতন: '),
                 TextSpan(
-                    text: ' ${station.change}',
+                  text: ' ${station.change}',
                   style: TextStyle(color: statusColor),
                 ),
               ],
             ),
-          )
-
+          ),
         ],
       ),
     );
