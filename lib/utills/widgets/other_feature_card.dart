@@ -5,7 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../../pages/feature_details.dart';
+import '../../pages/other_feature_details.dart';
 
 class OtherFeatureCard extends StatelessWidget {
   final String icon;

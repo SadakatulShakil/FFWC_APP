@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -19,7 +20,6 @@ class InfoGraphicalView extends StatelessWidget {
     return _getTextColor(index).withOpacity(0.3);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
@@ -34,8 +34,8 @@ class InfoGraphicalView extends StatelessWidget {
           child: Stack(
             children: [
               Container(
-                padding: EdgeInsets.fromLTRB(16, 40, 16, 16),
-                height: 150,
+                padding: EdgeInsets.fromLTRB(16.w, 40.h, 16.w, 16.h),
+                height: 150.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -50,24 +50,26 @@ class InfoGraphicalView extends StatelessWidget {
                     GestureDetector(
                       onTap: () => Get.back(),
                       child: Padding(
-                        padding: EdgeInsets.all(12.0),
+                        padding: EdgeInsets.all(10.r),
                         child: Icon(
                           Icons.arrow_back_ios,
                           color: Colors.white,
-                          size: 18,
+                          size: 20.sp,
                         ),
                       ),
                     ),
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+                        padding: EdgeInsets.only(top: 8.h, bottom: 8.h),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
                             'স্টেশনের বর্তমান অবস্থা',
                             style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NotoSansBengali',
+                              letterSpacing: 0.3.sp,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18.sp,
                               color: Colors.white,
                             ),
                           ),
@@ -75,38 +77,34 @@ class InfoGraphicalView extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+                      padding: EdgeInsets.only(top: 8.h, bottom: 8.h),
                       child: Align(
                         alignment: Alignment.topLeft,
                         child: Text(
-                          'Water',
+                          'পর্যবেক্ষণ',
                           style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold,
+                            fontFamily: 'NotoSansBengali',
+                            fontSize: 16.sp,
+                            letterSpacing: 0.3.sp,
+                            fontWeight: FontWeight.w600,
                             color: Color(0xFF00E5CA),
                           ),
                         ),
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(
-                        top: 10.0,
-                        bottom: 12.0,
-                        right: 8.0,
-                      ),
+                      padding: EdgeInsets.only(top: 10.h, bottom: 12.h, right: 8.w),
                       child: Icon(
                         Icons.keyboard_arrow_down_rounded,
                         color: Color(0xFF00E5CA),
-                        size: 18,
+                        size: 18.sp,
                       ),
                     ),
                   ],
                 ),
               ),
-
-              /// Top overlay panel with buttons + modal
               Positioned(
-                top: 60,
+                top: 60.h,
                 left: 0,
                 right: 0,
                 child: SafeArea(
@@ -114,8 +112,8 @@ class InfoGraphicalView extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        topRight: Radius.circular(25),
+                        topLeft: Radius.circular(25.r),
+                        topRight: Radius.circular(25.r),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -128,19 +126,21 @@ class InfoGraphicalView extends StatelessWidget {
                     child: Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(top: 12.0),
+                          padding: EdgeInsets.only(top: 12.h),
                           child: Text(
                             'সর্বশেষ আপডেট: রবিবার ২৪ জুন, ২০২৫ রাত ৯.০০ টা',
                             style: TextStyle(
-                              fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                              fontSize: 14.sp,
+                              fontFamily: 'NotoSansBengali',
+                              letterSpacing: 0.3.sp,
+                              fontWeight: FontWeight.w700,
                               color: Colors.blue.shade900,
                             ),
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        SizedBox(height: 8.h),
                         Padding(
-                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          padding: EdgeInsets.symmetric(horizontal: 8.w),
                           child: Obx(() => Row(
                             children: controller.stationCategories.map((category) {
                               int index = controller.stationCategories.indexOf(category);
@@ -154,13 +154,12 @@ class InfoGraphicalView extends StatelessWidget {
                                 ),
                               );
                             }).toList(),
-                          ),),
-
+                          )),
                         ),
                         Obx(() => Padding(
-                          padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                          padding: EdgeInsets.symmetric(horizontal: 8.w),
                           child: SizedBox(
-                            height: MediaQuery.of(context).size.height -150,
+                            height: MediaQuery.of(context).size.height - 150.h,
                             child: GoogleMap(
                               initialCameraPosition: CameraPosition(
                                 target: controller.bangladeshCenter,
@@ -174,24 +173,21 @@ class InfoGraphicalView extends StatelessWidget {
                             ),
                           ),
                         )),
-
                       ],
                     ),
                   ),
                 ),
               ),
-
-              /// Floating modal overlay (appears on top of map)
               Positioned(
-                top: 200,
-                left: 5,
-                right: 5,
+                top: 200.h,
+                left: 5.w,
+                right: 5.w,
                 child: Obx(() => controller.showingDistricts.value
                     ? Container(
-                  padding: const EdgeInsets.all(12),
+                  padding: EdgeInsets.all(12.r),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(12.r),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black12,
@@ -200,50 +196,50 @@ class InfoGraphicalView extends StatelessWidget {
                       ),
                     ],
                   ),
-                      child: Wrap(
-                        spacing: 8,
-                        runSpacing: 6,
-                        children: controller.visibleDistricts
-                            .map((data) => GestureDetector(
-                          onTap: () {
-                            final district = data['district']!;
-                            final category = data['category']!;
-                            Get.to(() => DistrictDetailsInformation(
-                              districtName: district,
-                              categoryName: category,
-                            ));
-                          },
-                          child: Chip(
-                            label: Text(
-                              data['district']!,
-                              style: const TextStyle(
-                                color: Colors.blue,
-                                fontSize: 14,
-                              ),
-                            ),
-                            backgroundColor: Colors.blue.shade50,
+                    child: Wrap(
+                    spacing: 8.w,
+                    runSpacing: 6.h,
+                    children: controller.visibleDistricts
+                        .map((data) => GestureDetector(
+                      onTap: () {
+                        final district = data['district']!;
+                        final category = data['category']!;
+                        Get.to(() => DistrictDetailsInformation(
+                          districtName: district,
+                          categoryName: category,
+                        ));
+                      },
+                      child: Chip(
+                        label: Text(
+                          data['district']!,
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontFamily: 'NotoSansBengali',
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14.sp,
                           ),
-                        ))
-                            .toList(),
+                        ),
+                        backgroundColor: Colors.blue.shade50,
                       ),
+                    ))
+                        .toList(),
+                  ),
                 )
-                    : const SizedBox.shrink()),
+                    : SizedBox.shrink()),
               ),
-
-              /// Optional Logo or control elements
               Positioned(
-                bottom: 20,
-                left: 10,
+                bottom: 20.h,
+                left: 10.w,
                 child: Row(
                   children: [
-                    Image.asset('assets/images/logo.png', height: 65),
+                    Image.asset('assets/images/logo.png', height: 65.h),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text('Flood Forecasting And Warning Center',
-                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                            style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold)),
                         Text('Bangladesh Water Development Board',
-                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold)),
+                            style: TextStyle(fontSize: 12.sp, fontWeight: FontWeight.bold)),
                       ],
                     ),
                   ],
@@ -266,12 +262,12 @@ class InfoGraphicalView extends StatelessWidget {
         }
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 14),
+        padding: EdgeInsets.symmetric(vertical: 14.h),
         decoration: BoxDecoration(
           color: backColor,
           borderRadius: BorderRadius.only(
-            topLeft: index == 0 ? Radius.circular(12) : Radius.zero,
-            topRight: index == ctrl.stationCategories.length - 1 ? Radius.circular(12) : Radius.zero,
+            topLeft: index == 0 ? Radius.circular(12.r) : Radius.zero,
+            topRight: index == ctrl.stationCategories.length - 1 ? Radius.circular(12.r) : Radius.zero,
           ),
         ),
         child: Row(
@@ -279,12 +275,17 @@ class InfoGraphicalView extends StatelessWidget {
           children: [
             Text(
               title,
-              style: TextStyle(color: textColor, fontWeight: FontWeight.bold),
+              style: TextStyle(color: textColor, fontWeight: FontWeight.bold, fontSize: 14.sp),
             ),
-            const SizedBox(width: 4),
+            SizedBox(width: 4.w),
             Obx(() => Text(
               "(${ctrl.categoryCounts[title] ?? 0})",
-              style: TextStyle(fontSize: 14, color: Colors.grey.shade700),
+              style: TextStyle(
+                fontFamily: 'NotoSansBengali',
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w600,
+                color: Colors.grey.shade700,
+              ),
             )),
           ],
         ),
@@ -292,4 +293,3 @@ class InfoGraphicalView extends StatelessWidget {
     );
   }
 }
-
