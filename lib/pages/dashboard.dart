@@ -52,7 +52,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         child: Row(
                           children: [
                             Text(
-                              "মিরপুর ডিওএইচএস, ঢাকা, বাংলাদেশ",
+                              "location_text".tr,
                               style: TextStyle(
                                 fontFamily: 'NotoSansBengali',
                                 fontWeight: FontWeight.w400,
@@ -104,7 +104,7 @@ class _DashboardPageState extends State<DashboardPage> {
                               Image.asset('assets/images/weather_icon.png', width: 70.w, height: 70.h),
                               SizedBox(height: 4.h),
                               Text(
-                                'আংশিক মেঘলা',
+                                'weather_condition'.tr,
                                 style: TextStyle(
                                     fontFamily: 'NotoSansBengali',
                                     fontWeight: FontWeight.w500,
@@ -122,7 +122,7 @@ class _DashboardPageState extends State<DashboardPage> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            "৩৬° সেলসিয়াস মনে হচ্ছে",
+                            "feels_like".tr,
                             style: TextStyle(
                               fontFamily: 'NotoSansBengali',
                               fontSize: 16.sp,
@@ -139,10 +139,10 @@ class _DashboardPageState extends State<DashboardPage> {
                           SizedBox(width: 5.w),
                           Icon(Icons.arrow_drop_up_outlined, color: Colors.orange, size: 20.r),
                           Text(
-                            "৪১°C",
+                            controller.weatherData[0].high,
                             style: TextStyle(
                               fontFamily: 'NotoSansBengali',
-                              fontSize: 16.sp,
+                              fontSize: 15.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -150,10 +150,10 @@ class _DashboardPageState extends State<DashboardPage> {
                           SizedBox(width: 5.w),
                           Icon(Icons.arrow_drop_down, color: Colors.teal, size: 22.r),
                           Text(
-                            "২৪°C",
+                            controller.weatherData[0].low,
                             style: TextStyle(
                               fontFamily: 'NotoSansBengali',
-                              fontSize: 16.sp,
+                              fontSize: 15.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -168,10 +168,10 @@ class _DashboardPageState extends State<DashboardPage> {
                           Icon(Icons.water_outlined, color: Colors.blue, size: 20.r),
                           SizedBox(width: 8.w),
                           Text(
-                            "৩১%",
+                            controller.weatherData[0].wind,
                             style: TextStyle(
                               fontFamily: 'NotoSansBengali',
-                              fontSize: 16.sp,
+                              fontSize: 15.sp,
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
                             ),
@@ -224,7 +224,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             color: const Color(0xFFFFEFF0),
                             child: Marquee(
                               text:
-                              '🚨 বন্যা সতর্কতা: (২৩ জুন ২০২৫) তিস্তা, ধরলা ও দুধকুমার নদীসমূহের পানি আগামী ০২ দিন বৃদ্ধি পেতে পারে এবং আগামী ৪৮ ঘণ্টায় তিস্তা নদীর পানি সতর্কসীমায় (বিপদসীমার কাছাকাছি) প্রবাহিত হতে পারে। ✦✦ বিস্তারিত পূর্বাভাসের জন্য দৈনিক প্রতিবেদন দেখুন।',
+                              'marquee_text'.tr,
                               style: TextStyle(
                                 fontFamily: 'NotoSansBengali',
                                 fontWeight: FontWeight.w600,

@@ -27,11 +27,11 @@ class DashboardController extends GetxController {
   void loadInitialData() {
     // Load initial weather data
     weatherData.add(WeatherModel(
-      temperature: '৩২',
+      temperature: 'temperature'.tr,
       icon: '☀️',
-      low: '28°C',
-      high: '35°C',
-      wind: '১৫%'
+      low: 'low'.tr,
+      high: 'high'.tr,
+      wind: 'wind'.tr,
     ));
 
     // Load initial Station features

@@ -20,10 +20,10 @@ class NavigationView extends GetView<NavigationController> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              buildNavbarItem(Icons.home_filled, "Home", 0),
-              buildNavbarItem(Icons.broken_image_sharp, "Flood Info", 1),
-              buildNavbarItem(Icons.crisis_alert_rounded, "Flood Alert", 2),
-              buildNavbarItem(Icons.account_box, "Profile", 3),
+              buildNavbarItem(Icons.home_filled, "home".tr, 0),
+              buildNavbarItem(Icons.broken_image_sharp, "flood_info".tr, 1),
+              buildNavbarItem(Icons.crisis_alert_rounded, "flood_alert".tr, 2),
+              buildNavbarItem(Icons.account_box, "profile".tr, 3),
             ],
           ),
         ),

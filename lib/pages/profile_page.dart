@@ -51,7 +51,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       children: [
                         Expanded(
                           child: Text(
-                            'প্রফাইল',
+                            'profile_title'.tr,
                             style: TextStyle(
                               fontFamily: 'NotoSansBengali',
                               letterSpacing: 0.3.sp,
@@ -84,7 +84,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   ),
                                   SizedBox(width: 5.w),
                                   Text(
-                                    "Confirm",
+                                    "confirm_btn".tr,
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -279,7 +279,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       SizedBox(height: 10.h),
                                       Padding(
                                         padding: EdgeInsets.only(left: 5.w),
-                                        child: Text('Theme chnage',
+                                        child: Text('theme_select'.tr,
                                             style: TextStyle(fontSize: 16.sp)),
                                       ),
                                       SizedBox(height: 10.h),
@@ -429,8 +429,9 @@ class _ProfilePageState extends State<ProfilePage> {
           },
           children: [
             Padding(
-              padding:
-              EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
+              padding: EdgeInsets.symmetric(
+                  horizontal: 30.w,
+                  vertical: 10.h),
               child: Text('🌙  Dark mode'),
             ),
             Padding(
