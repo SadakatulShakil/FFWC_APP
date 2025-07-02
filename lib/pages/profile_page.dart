@@ -44,33 +44,34 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(8.w),
                   child: Align(
                     alignment: Alignment.topLeft,
-                    child: Obx(()=>Row(
+                    child: Obx(() => Row(
                       children: [
                         Expanded(
                           child: Text(
-                            "প্রফাইল",
+                            'প্রফাইল',
                             style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
+                              fontFamily: 'NotoSansBengali',
+                              letterSpacing: 0.3.sp,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18.sp,
                               color: Colors.white,
                             ),
                           ),
                         ),
                         controller.isConfirmVisible.value
                             ? Padding(
-                          padding: const EdgeInsets.only(right: 8.0),
+                          padding: EdgeInsets.only(right: 8.w),
                           child: Container(
                             padding: EdgeInsets.symmetric(
-                              horizontal: 12,
-                              vertical: 6,
+                              horizontal: 12.w,
+                              vertical: 6.h,
                             ),
                             decoration: BoxDecoration(
-                              color: AppColors().positive_bg
-                                  .withOpacity(0.4),
-                              borderRadius: BorderRadius.circular(20),
+                              color: AppColors().positive_bg.withOpacity(0.4),
+                              borderRadius: BorderRadius.circular(20.r),
                             ),
                             child: InkWell(
                               onTap: () => controller.uploadImage(),
@@ -79,9 +80,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Icon(
                                     Icons.check,
                                     color: Colors.white,
-                                    size: 20,
+                                    size: 20.sp,
                                   ),
-                                  SizedBox(width: 5),
+                                  SizedBox(width: 5.w),
                                   Text(
                                     "Confirm",
                                     style: TextStyle(
@@ -96,33 +97,31 @@ class _ProfilePageState extends State<ProfilePage> {
                         )
                             : SizedBox.shrink(),
                       ],
-                    ),
-                    ),
+                    )),
                   ),
                 ),
               ),
-              /// Curved section and List of content
               Positioned(
-                top: 110.h,
+                top: 100.h,
                 left: 0,
                 right: 0,
                 bottom: 0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(25),
-                    topLeft: Radius.circular(25),
+                    topRight: Radius.circular(25.r),
+                    topLeft: Radius.circular(25.r),
                   ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(25),
-                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25.r),
+                        topLeft: Radius.circular(25.r),
                       ),
                       boxShadow: [
                         BoxShadow(
                           color: Colors.black12,
-                          blurRadius: 10,
+                          blurRadius: 10.r,
                           offset: Offset(0, 2),
                         ),
                       ],
@@ -132,340 +131,199 @@ class _ProfilePageState extends State<ProfilePage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          SizedBox(height: 20),
+                          SizedBox(height: 20.h),
                           Center(
                             child: Column(
                               children: [
-                                Stack(
-                                    children: [
-                                      Obx(() {
-                                        return CircleAvatar(
-                                          maxRadius: 65,
-                                          backgroundColor: AppColors().app_primary,
-                                          child: CircleAvatar(
-                                            radius: 63,
-                                            backgroundImage: controller.selectedImagePath.value.isNotEmpty
-                                                ? FileImage(File(controller.selectedImagePath.value)) // Show preview
-                                                : AssetImage("assets/images/profile.png" // Fallback image
-                                            ) as ImageProvider, // Ensures correct type
-                                          ),
-                                        );
-                                      }),
-                                      Positioned(
-                                          child: CircleAvatar(
-                                            backgroundColor: AppColors().app_alert_severe,
-                                            foregroundColor: AppColors().app_secondary,
-                                            radius: 18,
-                                            child: IconButton(onPressed: () {
+                                Stack(children: [
+                                  Obx(() {
+                                    return CircleAvatar(
+                                      maxRadius: 65.r,
+                                      backgroundColor: AppColors().app_primary,
+                                      child: CircleAvatar(
+                                        radius: 63.r,
+                                        backgroundImage:
+                                        controller.selectedImagePath.value.isNotEmpty
+                                            ? FileImage(File(
+                                            controller.selectedImagePath.value))
+                                            : AssetImage("assets/images/profile.png")
+                                        as ImageProvider,
+                                      ),
+                                    );
+                                  }),
+                                  Positioned(
+                                      child: CircleAvatar(
+                                        backgroundColor: AppColors().app_primary_bg,
+                                        foregroundColor: AppColors().app_secondary,
+                                        radius: 18.r,
+                                        child: IconButton(
+                                            onPressed: () {
                                               controller.pickImage();
-                                            }, icon: Icon(Icons.camera_alt_rounded, size: 20,)),
-                                          ),
-                                          bottom: 0,
-                                          right: 0
-                                      )
-                                    ]
-                                ),
-                                SizedBox(height: 16),
-                                Obx(()=> Text(controller.mobile.value)),
-                                Obx(()=> Text(controller.name.value, style: TextStyle( fontSize: 18, fontWeight: FontWeight.w700)),)
+                                            },
+                                            icon: Icon(
+                                              Icons.camera_alt_rounded,
+                                              size: 20.sp,
+                                            )),
+                                      ),
+                                      bottom: 0,
+                                      right: 0)
+                                ]),
+                                SizedBox(height: 16.h),
+                                Obx(() => Text(controller.mobile.value)),
+                                Obx(() => Text(controller.name.value,
+                                    style: TextStyle(
+                                        fontSize: 18.sp,
+                                        fontWeight: FontWeight.w700)))
                               ],
                             ),
                           ),
-
-                          SizedBox(height: 16),
-
-                          /// TabBar
+                          SizedBox(height: 16.h),
                           Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 20),
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
                             child: Column(
                               children: [
                                 Container(
-                                  width: MediaQuery.of(context).size.height,
+                                  width: double.infinity,
                                   decoration: BoxDecoration(
                                       color: AppColors().app_primary,
-                                      borderRadius: BorderRadius.circular(5)
+                                      borderRadius: BorderRadius.circular(5.r)),
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(horizontal: 4.w),
+                                    child: TabBar(
+                                        dividerHeight: 0,
+                                        labelColor: AppColors().app_primary,
+                                        unselectedLabelColor:
+                                        AppColors().card_background,
+                                        indicatorWeight: 1,
+                                        indicatorPadding: EdgeInsets.symmetric(
+                                            vertical: 4.h),
+                                        indicatorSize: TabBarIndicatorSize.tab,
+                                        indicatorColor:
+                                        AppColors().card_background,
+                                        indicator: BoxDecoration(
+                                            color: AppColors().card_background,
+                                            borderRadius:
+                                            BorderRadius.circular(5.r)),
+                                        controller: controller.tabController,
+                                        tabs: [
+                                          Tab(text: "profile_info".tr),
+                                          Tab(text: "settings".tr),
+                                          Tab(text: "profile_logout".tr),
+                                        ]),
                                   ),
-                                  child: Column(
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 20.h),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 20.w),
+                            child: Container(
+                              height: MediaQuery.of(context).size.longestSide,
+                              child: TabBarView(
+                                controller: controller.tabController,
+                                children: [
+                                  /// Profile Info Tab
+                                  Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsets.symmetric(horizontal: 4),
-                                        child: TabBar(
-                                            dividerHeight: 0,
-                                            labelColor: AppColors().app_primary,
-                                            unselectedLabelColor: AppColors().app_secondary,
-                                            indicatorWeight: 1,
-                                            indicatorPadding: EdgeInsets.symmetric(vertical: 4),
-                                            indicatorSize: TabBarIndicatorSize.tab,
-                                            indicatorColor: AppColors().app_secondary,
-                                            indicator: BoxDecoration(
-                                                color: AppColors().app_secondary,
-                                                borderRadius: BorderRadius.circular(5)
-                                            ),
-                                            controller: controller.tabController,
-                                            tabs: [
-                                              Tab(text: "profile_info".tr),
-                                              Tab(text: "settings".tr),
-                                              Tab(text: "profile_logout".tr),
-                                            ]
+                                      SizedBox(height: 16.h),
+                                      _buildTextField(
+                                          controller.nameController,
+                                          "profile_info_name".tr),
+                                      SizedBox(height: 16.h),
+                                      _buildTextField(
+                                          controller.emailController,
+                                          "profile_info_email".tr),
+                                      SizedBox(height: 16.h),
+                                      _buildTextField(
+                                          controller.addressController,
+                                          "profile_info_address".tr),
+                                      SizedBox(height: 16.h),
+                                      SizedBox(
+                                        width:
+                                        MediaQuery.of(context).size.width,
+                                        child: ElevatedButton(
+                                          onPressed: controller.updateProfile,
+                                          child: Text(
+                                              "profile_info_update_button".tr,
+                                              style:
+                                              TextStyle(fontSize: 16.sp)),
+                                          style: ElevatedButton.styleFrom(
+                                              backgroundColor:
+                                              AppColors().app_primary,
+                                              foregroundColor:
+                                              AppColors().card_background,
+                                              minimumSize: Size(100.w, 50.h),
+                                              shape: RoundedRectangleBorder(
+                                                  borderRadius:
+                                                  BorderRadius.circular(
+                                                      4.r))),
                                         ),
                                       )
                                     ],
                                   ),
-                                )
-                              ],
-                            ),
-                          ),
-
-                          SizedBox(height: 20),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 20),
-                            child: Container(
-                                height: MediaQuery.of(context).size.longestSide,
-                                child: TabBarView(
-                                    controller: controller.tabController,
+                                  /// Settings Tab
+                                  Column(
+                                    crossAxisAlignment:
+                                    CrossAxisAlignment.start,
                                     children: [
-                                      /// TabBar View 1
-                                      // Profile View
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Container(
-                                            padding: EdgeInsets.only(top: 6),
-                                            width: MediaQuery.of(context).size.width,
-                                            child: TextField(
-                                              controller: controller.nameController,
-                                              enabled: true,
-                                              decoration: InputDecoration(
-                                                label: Text("profile_info_name".tr, style: TextStyle(color: AppColors().app_primary),),
-                                                enabledBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.grey)),
-                                                disabledBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.grey)),
-                                                focusedBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: AppColors().app_primary)
-                                                ),
-                                              ),
-                                              cursorColor: AppColors().app_primary,
-                                            ),
-                                          ),
-
-                                          Container(
-                                            padding: EdgeInsets.only(top: 16),
-                                            width: MediaQuery.of(context).size.width,
-                                            child: TextField(
-                                              controller: controller.emailController,
-                                              enabled: true,
-                                              decoration: InputDecoration(
-                                                label: Text("profile_info_email".tr, style: TextStyle(color: AppColors().app_primary),),
-                                                enabledBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.grey)),
-                                                disabledBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.grey)),
-                                                focusedBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: AppColors().app_primary)
-                                                ),
-                                              ),
-                                              cursorColor: AppColors().app_primary,
-                                            ),
-                                          ),
-
-                                          SizedBox(height: 6),
-
-                                          Container(
-                                            padding: EdgeInsets.only(top: 12),
-                                            width: MediaQuery.of(context).size.width,
-                                            child: TextField(
-                                              controller: controller.addressController,
-                                              enabled: true,
-                                              decoration: InputDecoration(
-                                                label: Text("profile_info_address".tr, style: TextStyle(color: AppColors().app_primary),),
-                                                enabledBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.grey)),
-                                                disabledBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: Colors.grey)),
-                                                focusedBorder: OutlineInputBorder(
-                                                    borderSide: BorderSide(color: AppColors().app_primary)
-                                                ),
-                                              ),
-                                              cursorColor: AppColors().app_primary,
-                                            ),
-                                          ),
-
-                                          SizedBox(height: 16),
-
-                                          Container(
-                                              width: MediaQuery.of(context).size.width,
-                                              child: ElevatedButton(
-                                                onPressed: controller.updateProfile,
-                                                child: Text("profile_info_update_button".tr),
-                                                style: ElevatedButton.styleFrom(
-                                                    backgroundColor: AppColors().app_primary,
-                                                    foregroundColor: AppColors().app_secondary,
-                                                    textStyle: TextStyle(fontSize: 16),
-                                                    minimumSize: Size(100, 50),
-                                                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4))
-                                                ),
-                                              )
-                                          ),
-
-                                        ],
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 5.w),
+                                        child: Text("profile_language_select".tr,
+                                            style: TextStyle(fontSize: 16.sp)),
                                       ),
-                                      /// TabBar View 2
-                                      // Language
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 5.0),
-                                            child: Text("profile_language_select".tr, style: TextStyle(fontSize: 16),),
-                                          ),
-                                          SizedBox(height: 10),
-                                          // Language Toggle Buttons
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 3.0),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius: BorderRadius.circular(10),
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Colors.black12,
-                                                    blurRadius: 5,
-                                                    spreadRadius: 1,
-                                                  ),
-                                                ],
-                                              ),
-                                             child: ToggleButtons(
-                                               borderRadius: BorderRadius.circular(10),
-                                               fillColor: AppColors().app_primary_bg,
-                                               selectedColor: AppColors().app_primary,
-                                               color: Colors.black54,
-                                               textStyle: TextStyle(fontSize: 16.sp),
-                                               isSelected: controller.selectedLanguage,
-                                               onPressed: (int index) {
-                                                 controller.changeLanguage(index);
-                                               },
-                                               children: [
-                                                 Padding(
-                                                   padding: const EdgeInsets.symmetric(
-                                                       horizontal: 30, vertical: 10),
-                                                   child: Text('English'),
-                                                 ),
-                                                 Padding(
-                                                   padding: const EdgeInsets.symmetric(
-                                                       horizontal: 30, vertical: 10),
-                                                   child: Text('বাংলা'),
-                                                 ),
-                                               ],
-                                             ),
-                                            ),
-                                          ),
-                                          SizedBox(height: 10),
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 5.0),
-                                            child: Text('Theme chnage', style: TextStyle(fontSize: 16),),
-                                          ),
-                                          SizedBox(height: 10),
-                                          // Language Toggle Buttons
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 3.0),
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                color: Colors.white,
-                                                borderRadius: BorderRadius.circular(10),
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: Colors.black12,
-                                                    blurRadius: 5,
-                                                    spreadRadius: 1,
-                                                  ),
-                                                ],
-                                              ),
-                                              child: Obx(() => ToggleButtons(
-                                                borderRadius: BorderRadius.circular(10),
-                                                fillColor: AppColors().app_primary_bg,
-                                                selectedColor: AppColors().app_primary,
-                                                color: Colors.black54,
-                                                textStyle: TextStyle(fontSize: 16.sp),
-                                                isSelected: [
-                                                  theme_controller.themeMode.value == ThemeMode.dark,
-                                                  theme_controller.themeMode.value == ThemeMode.light,
-                                                ],
-                                                onPressed: (int index) {
-                                                  print("Selected index: $index");
-                                                  if (index == 0 && theme_controller.themeMode.value != ThemeMode.dark) {
-                                                    theme_controller.toggleTheme(false); // false = dark
-                                                  } else if (index == 1 && theme_controller.themeMode.value != ThemeMode.light) {
-                                                    theme_controller.toggleTheme(true); // true = light
-                                                  }
-                                                },
-
-                                                children: [
-                                                  Padding(
-                                                    padding: const EdgeInsets.symmetric(
-                                                        horizontal: 30, vertical: 10),
-                                                    child: Text('🌙  Dark mode'),
-                                                  ),
-                                                  Padding(
-                                                    padding: const EdgeInsets.symmetric(
-                                                        horizontal: 30, vertical: 10),
-                                                    child: Text('☀️  Light mode'),
-                                                  ),
-                                                ],
-                                              )),
-                                            ),
-                                          ),
-                                          // _buildOptionTile(Icons.lock, 'change_password'.tr, () {
-                                          //   print('Password Change Clicked');
-                                          // }),
-                                          // _buildOptionTile(Icons.phone_android, 'help_center'.tr, () {
-                                          //   var item = {
-                                          //     "title": "help_center".tr,
-                                          //     "url": ApiURL.sidebar_contact_us
-                                          //   };
-                                          //   //Get.to(()=> WebviewView(), binding: WebviewBinding(), arguments: item, transition: Transition.rightToLeft);
-                                          // }),
-                                          // _buildOptionTile(Icons.article, 'faq'.tr, () {
-                                          //   var item = {
-                                          //     "title": "faq".tr,
-                                          //     "url": ApiURL.sidebar_faq
-                                          //   };
-                                          //   //Get.to(()=> WebviewView(), binding: WebviewBinding(), arguments: item, transition: Transition.rightToLeft);
-                                          // }),
-                                        ],
+                                      SizedBox(height: 10.h),
+                                      _buildToggleLanguage(),
+                                      SizedBox(height: 10.h),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 5.w),
+                                        child: Text('Theme chnage',
+                                            style: TextStyle(fontSize: 16.sp)),
                                       ),
-                                      /// TabBar View 3
-                                      // Logout
-                                      Column(
-                                        children: [
-                                          SizedBox(height: 20),
-                                          Center(
-                                            child: CircleAvatar(
-                                              backgroundColor: AppColors().app_alert_extreme,
-                                              foregroundColor: Colors.white,
-                                              radius: 30,
-                                              child: IconButton(onPressed: () {
-                                                //controller.logout();
-                                                }, icon: Icon(Icons.login_rounded, size: 30,)),
-                                            ),
+                                      SizedBox(height: 10.h),
+                                      _buildToggleTheme()
+                                    ],
+                                  ),
+                                  /// Logout Tab
+                                  Column(
+                                    children: [
+                                      SizedBox(height: 20.h),
+                                      Center(
+                                        child: CircleAvatar(
+                                          backgroundColor:
+                                          AppColors().app_alert_extreme,
+                                          foregroundColor: Colors.white,
+                                          radius: 30.r,
+                                          child: IconButton(
+                                            onPressed: () {},
+                                            icon: Icon(Icons.login_rounded,
+                                                size: 30.sp),
                                           ),
-                                          SizedBox(height: 4),
-                                          Text("profile_logout".tr, style: TextStyle(color: AppColors().app_alert_extreme, fontWeight: FontWeight.w500)),
-                                          SizedBox(height: 4),
-                                          Text("profile_logout_text".tr, textAlign: TextAlign.center,)
-                                        ],
-                                      )
-                                    ]
-                                )
+                                        ),
+                                      ),
+                                      SizedBox(height: 4.h),
+                                      Text("profile_logout".tr,
+                                          style: TextStyle(
+                                              color: AppColors()
+                                                  .app_alert_extreme,
+                                              fontWeight: FontWeight.w500)),
+                                      SizedBox(height: 4.h),
+                                      Text("profile_logout_text".tr,
+                                          textAlign: TextAlign.center),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           )
-
                         ],
                       ),
-                    )
+                    ),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),
@@ -473,20 +331,115 @@ class _ProfilePageState extends State<ProfilePage> {
     );
   }
 
-  Widget _buildOptionTile(IconData icon, String text, VoidCallback onTap) {
-    return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-      elevation: 3,
-      child: ListTile(
-        leading: Icon(icon, size: 30, color: AppColors().app_primary),
-        title: Text(
-          text,
-          style: TextStyle(fontSize: 16),
+  Widget _buildTextField(
+      TextEditingController controller, String labelText) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: TextField(
+        controller: controller,
+        decoration: InputDecoration(
+          label: Text(labelText,
+              style:
+              TextStyle(color: AppColors().app_primary, fontSize: 14.sp)),
+          enabledBorder:
+          OutlineInputBorder(borderSide: BorderSide(color: Colors.grey)),
+          focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: AppColors().app_primary)),
         ),
-        trailing: Icon(Icons.arrow_forward_ios, color: AppColors().app_primary),
-        tileColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-        onTap: onTap,
+        cursorColor: AppColors().app_primary,
+      ),
+    );
+  }
+
+  Widget _buildToggleLanguage() {
+    return Padding(
+      padding: EdgeInsets.only(left: 3.w),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 5.r,
+              spreadRadius: 1,
+            ),
+          ],
+        ),
+        child: ToggleButtons(
+          borderRadius: BorderRadius.circular(10.r),
+          fillColor: AppColors().app_primary_bg,
+          selectedColor: AppColors().app_primary,
+          color: Colors.black54,
+          textStyle: TextStyle(fontSize: 16.sp),
+          isSelected: controller.selectedLanguage,
+          onPressed: (int index) {
+            controller.changeLanguage(index);
+          },
+          children: [
+            Padding(
+              padding:
+              EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
+              child: Text('English'),
+            ),
+            Padding(
+              padding:
+              EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
+              child: Text('বাংলা'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildToggleTheme() {
+    return Padding(
+      padding: EdgeInsets.only(left: 3.w),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black12,
+              blurRadius: 5.r,
+              spreadRadius: 1,
+            ),
+          ],
+        ),
+        child: Obx(() => ToggleButtons(
+          borderRadius: BorderRadius.circular(10.r),
+          fillColor: AppColors().app_primary_bg,
+          selectedColor: AppColors().app_primary,
+          color: Colors.black54,
+          textStyle: TextStyle(fontSize: 16.sp),
+          isSelected: [
+            theme_controller.themeMode.value == ThemeMode.dark,
+            theme_controller.themeMode.value == ThemeMode.light,
+          ],
+          onPressed: (int index) {
+            if (index == 0 &&
+                theme_controller.themeMode.value != ThemeMode.dark) {
+              theme_controller.toggleTheme(false);
+            } else if (index == 1 &&
+                theme_controller.themeMode.value != ThemeMode.light) {
+              theme_controller.toggleTheme(true);
+            }
+          },
+          children: [
+            Padding(
+              padding:
+              EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
+              child: Text('🌙  Dark mode'),
+            ),
+            Padding(
+              padding:
+              EdgeInsets.symmetric(horizontal: 30.w, vertical: 10.h),
+              child: Text('☀️  Light mode'),
+            ),
+          ],
+        )),
       ),
     );
   }

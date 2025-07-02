@@ -9,6 +9,8 @@ import '../controllers/station/water_level_controller.dart';
 import 'district_details_information.dart';
 
 class InfoGraphicalView extends StatelessWidget {
+  final bool hasBackButton;
+  InfoGraphicalView({Key? key, required this.hasBackButton}) : super(key: key);
   final WaterLevelController controller = Get.put(WaterLevelController());
 
   Color _getTextColor(int index) {
@@ -51,11 +53,11 @@ class InfoGraphicalView extends StatelessWidget {
                       onTap: () => Get.back(),
                       child: Padding(
                         padding: EdgeInsets.all(10.r),
-                        child: Icon(
+                        child: hasBackButton? Icon(
                           Icons.arrow_back_ios,
                           color: Colors.white,
                           size: 20.sp,
-                        ),
+                        ): SizedBox.shrink(),
                       ),
                     ),
                     Expanded(

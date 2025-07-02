@@ -7,6 +7,8 @@ import 'package:get/get.dart';
 import '../Utills/AppColors.dart';
 
 class RainfallInformation extends StatefulWidget {
+  final bool hasBackButton;
+  const RainfallInformation({Key? key, required this.hasBackButton}) : super(key: key);
   @override
   State<RainfallInformation> createState() => _RainfallInformationState();
 }
@@ -65,11 +67,11 @@ class _RainfallInformationState extends State<RainfallInformation> {
                       onTap: () => Get.back(),
                       child: Padding(
                         padding: EdgeInsets.all(10.r),
-                        child: Icon(
+                        child: widget.hasBackButton?Icon(
                           Icons.arrow_back_ios,
                           color: Colors.white,
                           size: 20.sp,
-                        ),
+                        ): SizedBox.shrink(),
                       ),
                     ),
                     Expanded(
@@ -94,7 +96,7 @@ class _RainfallInformationState extends State<RainfallInformation> {
                 ),
               ),
               Positioned(
-                top: 110.h,
+                top: 100.h,
                 left: 0,
                 right: 0,
                 child: ClipRRect(
@@ -103,7 +105,7 @@ class _RainfallInformationState extends State<RainfallInformation> {
                     topLeft: Radius.circular(25.r),
                   ),
                   child: Container(
-                    height: MediaQuery.of(context).size.height - 60.h,
+                    height: MediaQuery.of(context).size.height -60.h,
                     decoration: BoxDecoration(
                       color: Colors.grey.shade50,
                       borderRadius: BorderRadius.only(
@@ -336,7 +338,7 @@ class _RainfallInformationState extends State<RainfallInformation> {
                                           ),
                                         ),
                                       ),
-                                      SizedBox(height: 32.h),
+                                      SizedBox(height: 120.h),
                                     ],
                                   ),
                                 )

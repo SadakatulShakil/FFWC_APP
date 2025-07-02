@@ -21,9 +21,9 @@ class NavigationView extends GetView<NavigationController> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               buildNavbarItem(Icons.home_filled, "Home", 0),
-              buildNavbarItem(Icons.settings, "Settings", 1),
-              buildNavbarItem(Icons.account_box, "Profile", 2),
-              buildNavbarItem(Icons.dashboard_outlined, "Menu", 3),
+              buildNavbarItem(Icons.broken_image_sharp, "Flood Info", 1),
+              buildNavbarItem(Icons.crisis_alert_rounded, "Flood Alert", 2),
+              buildNavbarItem(Icons.account_box, "Profile", 3),
             ],
           ),
         ),

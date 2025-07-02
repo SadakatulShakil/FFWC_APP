@@ -27,13 +27,13 @@ class OtherFeatureCard extends StatelessWidget {
               )
             : label == 'rainfall_info'.tr
             ? Get.to(
-                () => RainfallInformation(),
+                () => RainfallInformation(hasBackButton: true),
                 transition: Transition.rightToLeft,
                 duration: Duration(milliseconds: 300),
               )
             : label == 'inundation_map'.tr
             ? Get.to(
-                () => InfoGraphicalView(),
+                () => InfoGraphicalView(hasBackButton: true),
                 transition: Transition.rightToLeft,
                 duration: Duration(milliseconds: 300),
               )

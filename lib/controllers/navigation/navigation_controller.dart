@@ -4,7 +4,9 @@ import 'package:get/get.dart';
 
 import '../../pages/dashboard.dart';
 import '../../pages/menu_page.dart';
+import '../../pages/other_feature_details.dart';
 import '../../pages/profile_page.dart';
+import '../../pages/rainfall_information.dart';
 import '../../pages/settings_page.dart';
 import '../../services/user_pref_service.dart';
 import '../dashboard/dashboard_controller.dart';
@@ -23,11 +25,11 @@ class NavigationController extends GetxController {
       case 0:
         return DashboardPage();
       case 1:
-        return SettingsPage();
+        return RainfallInformation(hasBackButton: false);
       case 2:
-        return ProfilePage();
+        return InfoGraphicalView(hasBackButton: false);
       case 3:
-        return MenuPage();
+        return ProfilePage();
       default:
         return DashboardPage();
     }
