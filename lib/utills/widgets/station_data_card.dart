@@ -19,11 +19,11 @@ class StationCard extends StatelessWidget {
         : Colors.black;
 
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 5.h),
-      padding: EdgeInsets.all(8.w),
+      padding: EdgeInsets.all(12.w),
+      margin: EdgeInsets.symmetric(vertical: 8.h),
       decoration: BoxDecoration(
         color: Colors.blue.shade50,
-        borderRadius: BorderRadius.circular(10.r),
+        borderRadius: BorderRadius.circular(8.r),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

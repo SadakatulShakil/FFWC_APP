@@ -18,19 +18,16 @@ class StationInfoGraphicalView extends StatelessWidget {
 
     return Stack(
       children: [
-        Obx(() => Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.w),
-          child: GoogleMap(
-            initialCameraPosition: CameraPosition(
-              target: controller.bangladeshCenter,
-              zoom: controller.zoomLevel.value,
-            ),
-            markers: controller.markers.toSet(),
-            onMapCreated: controller.initializeMap,
-            mapType: MapType.normal,
-            myLocationEnabled: true,
-            compassEnabled: true,
+        Obx(() => GoogleMap(
+          initialCameraPosition: CameraPosition(
+            target: controller.bangladeshCenter,
+            zoom: controller.zoomLevel.value,
           ),
+          markers: controller.markers.toSet(),
+          onMapCreated: controller.initializeMap,
+          mapType: MapType.normal,
+          myLocationEnabled: true,
+          compassEnabled: true,
         )),
 
         /// Bottom logo section

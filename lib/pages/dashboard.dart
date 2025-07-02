@@ -32,7 +32,7 @@ class _DashboardPageState extends State<DashboardPage> {
                 ///Background gif or image for animation
                 Container(
                   padding: EdgeInsets.fromLTRB(16, 35, 16, 16),
-                  height: 225.h,
+                  height: 230.h,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
@@ -43,7 +43,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 8.h),
+                      SizedBox(height: 16.h),
                       /// Location Info
                       GestureDetector(
                         onTap: () {
@@ -86,7 +86,7 @@ class _DashboardPageState extends State<DashboardPage> {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '°C',
+                                  text: 'base'.tr,
                                   style: TextStyle(
                                     fontFamily: 'NotoSansBengali',
                                     fontSize: 24.sp,
@@ -101,14 +101,14 @@ class _DashboardPageState extends State<DashboardPage> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Image.asset('assets/images/weather_icon.png', width: 70.w, height: 70.h),
+                              Image.asset('assets/images/weather_icon.png', width: 50.w, height: 50.h),
                               SizedBox(height: 4.h),
                               Text(
                                 'weather_condition'.tr,
                                 style: TextStyle(
                                     fontFamily: 'NotoSansBengali',
                                     fontWeight: FontWeight.w500,
-                                    fontSize: 12.sp,
+                                    fontSize: 14.sp,
                                     color: Colors.white),
                               ),
                             ],
@@ -164,7 +164,7 @@ class _DashboardPageState extends State<DashboardPage> {
                             width: 1.w,
                             color: Colors.cyan,
                           ),
-                          SizedBox(width: 12.w),
+                          SizedBox(width: 8.w),
                           Icon(Icons.water_outlined, color: Colors.blue, size: 20.r),
                           SizedBox(width: 8.w),
                           Text(
@@ -190,15 +190,15 @@ class _DashboardPageState extends State<DashboardPage> {
                   bottom: 0,
                   child: ClipRRect(
                     borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(25.r),
-                      topLeft: Radius.circular(25.r),
+                      topRight: Radius.circular(16.r),
+                      topLeft: Radius.circular(16.r),
                     ),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(25.r),
-                          topLeft: Radius.circular(25.r),
+                          topRight: Radius.circular(16.r),
+                          topLeft: Radius.circular(16.r),
                         ),
                         boxShadow: [
                           BoxShadow(
@@ -216,11 +216,9 @@ class _DashboardPageState extends State<DashboardPage> {
                             title: feature.title,
                             items: feature.items,
                           )),
-
-                          SizedBox(height: 5.h),
-
+                          SizedBox(height: 20.h),
                           Container(
-                            height: 50.h,
+                            height: 60.h,
                             color: const Color(0xFFFFEFF0),
                             child: Marquee(
                               text:
@@ -243,14 +241,11 @@ class _DashboardPageState extends State<DashboardPage> {
                               decelerationCurve: Curves.easeOut,
                             ),
                           ),
-
                           ...controller.other_features.map((feature) => OtherFeatureSectionWidget(
                             title: feature.title,
                             items: feature.items,
                           )),
-
-                          SizedBox(height: 8.h),
-
+                          SizedBox(height: 23.h),
                           ...controller.alert_features.map((feature) => AlertWidget(
                             items: feature.items,
                           )),

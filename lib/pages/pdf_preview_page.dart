@@ -24,7 +24,7 @@ class PDFPreviewPage extends StatelessWidget {
             child: FloatingActionButton.extended(
               onPressed: () => _showPagePicker(context),
               label: Text(
-                'Go to page',
+                'go_to_page'.tr,
                 style: TextStyle(fontSize: 14.sp),
               ),
               icon: Icon(Icons.input, size: 20.sp),
@@ -67,7 +67,7 @@ class PDFPreviewPage extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            'PDF Preview',
+                            'pdf_page'.tr,
                             style: TextStyle(
                               fontFamily: 'NotoSansBengali',
                               letterSpacing: 0.3.sp,
@@ -103,15 +103,15 @@ class PDFPreviewPage extends StatelessWidget {
                 bottom: 0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(25.r),
-                    topLeft: Radius.circular(25.r),
+                    topRight: Radius.circular(16.r),
+                    topLeft: Radius.circular(16.r),
                   ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25.r),
-                        topRight: Radius.circular(25.r),
+                        topLeft: Radius.circular(16.r),
+                        topRight: Radius.circular(16.r),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -151,7 +151,7 @@ class PDFPreviewPage extends StatelessWidget {
     showDialog(
       context: context,
       builder: (_) => AlertDialog(
-        title: Text("Enter Page Number", style: TextStyle(fontSize: 16.sp, fontFamily: 'NotoSansBengali', fontWeight: FontWeight.w600)),
+        title: Text("page_no".tr, style: TextStyle(fontSize: 16.sp, fontFamily: 'NotoSansBengali', fontWeight: FontWeight.w600)),
         content: TextField(
           controller: inputController,
           keyboardType: TextInputType.number,
@@ -163,7 +163,7 @@ class PDFPreviewPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () => Navigator.of(context).pop(),
-            child: Text("Cancel", style: TextStyle(fontSize: 14.sp, fontFamily: 'NotoSansBengali', fontWeight: FontWeight.w400)),
+            child: Text("cancel".tr, style: TextStyle(fontSize: 14.sp, fontFamily: 'NotoSansBengali', fontWeight: FontWeight.w400)),
           ),
           TextButton(
             onPressed: () {
@@ -175,7 +175,7 @@ class PDFPreviewPage extends StatelessWidget {
               }
               Navigator.of(context).pop();
             },
-            child: Text("Go", style: TextStyle(fontSize: 14.sp, fontFamily: 'NotoSansBengali', fontWeight: FontWeight.w400)),
+            child: Text("go".tr, style: TextStyle(fontSize: 14.sp, fontFamily: 'NotoSansBengali', fontWeight: FontWeight.w400)),
           ),
         ],
       ),

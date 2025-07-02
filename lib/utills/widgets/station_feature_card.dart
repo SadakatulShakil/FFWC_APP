@@ -5,11 +5,13 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class StationFeatureCard extends StatelessWidget {
+  final String heading;
   final String title;
   final String value;
   final String label;
 
   const StationFeatureCard({
+    required this.heading,
     required this.title,
     required this.value,
     required this.label,
@@ -27,6 +29,7 @@ class StationFeatureCard extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         Get.to(() => StationInformation(
+          heading: heading,
           title: title,
           value: value,
           label: label,
@@ -37,7 +40,7 @@ class StationFeatureCard extends StatelessWidget {
         child: Stack(
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(12.r),
+              borderRadius: BorderRadius.circular(20.r),
               child: SvgPicture.asset(
                 getBackgroundSvg(),
                 width: double.infinity,
@@ -46,7 +49,7 @@ class StationFeatureCard extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.all(10.w),
+              padding: EdgeInsets.only(left: 12.w, right: 12.w, top: 14.h, bottom: 14.h),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

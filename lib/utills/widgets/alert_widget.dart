@@ -14,7 +14,7 @@ class AlertWidget extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(12.r),
+        borderRadius: BorderRadius.circular(20.r),
         boxShadow: [
           BoxShadow(color: Colors.grey.shade300, blurRadius: 4.r, offset: Offset(0, 2))
         ],
@@ -22,12 +22,11 @@ class AlertWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 8.h,),
           SizedBox(
-            height: 250.h,
+            height: 240.h,
             child: ListView.separated(
               scrollDirection: Axis.vertical,
-              padding: EdgeInsets.symmetric(horizontal: 2.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
               itemCount: items.length,
               separatorBuilder: (_, __) => SizedBox(width: 8.w),
               itemBuilder: (context, i) {

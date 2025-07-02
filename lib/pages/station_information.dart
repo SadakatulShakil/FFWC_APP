@@ -8,6 +8,7 @@ import '../utills/widgets/station_info_list_view.dart';
 
 class StationInformation extends StatefulWidget {
   final int tabIndex;
+  final String heading;
   final String title;
   final String value;
   final String label;
@@ -15,6 +16,7 @@ class StationInformation extends StatefulWidget {
   StationInformation({
     super.key,
     this.tabIndex = 0,
+    required this.heading,
     required this.title,
     required this.value,
     required this.label,
@@ -70,17 +72,17 @@ class _StationInformationState extends State<StationInformation> with SingleTick
                     GestureDetector(
                       onTap: () => Get.back(),
                       child: Padding(
-                        padding: EdgeInsets.all(10.w),
+                        padding: EdgeInsets.all(10.r),
                         child: Icon(Icons.arrow_back_ios, color: Colors.white, size: 20.sp),
                       ),
                     ),
                     Expanded(
                       child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 8.h),
+                        padding: EdgeInsets.only(top: 8.h, bottom: 8.h),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Text(
-                            'স্টেশনের বর্তমান অবস্থা',
+                            widget.heading,
                             style: TextStyle(
                               fontFamily: 'NotoSansBengali',
                               letterSpacing: 0.3.sp,
@@ -117,21 +119,21 @@ class _StationInformationState extends State<StationInformation> with SingleTick
 
               /// Tab section
               Positioned(
-                top: 110.h,
+                top: 100.h,
                 left: 0,
                 right: 0,
                 bottom: 0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(25.r),
-                    topLeft: Radius.circular(25.r),
+                    topRight: Radius.circular(16.r),
+                    topLeft: Radius.circular(16.r),
                   ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(25.r),
-                        topLeft: Radius.circular(25.r),
+                        topRight: Radius.circular(16.r),
+                        topLeft: Radius.circular(16.r),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -142,12 +144,14 @@ class _StationInformationState extends State<StationInformation> with SingleTick
                       ],
                     ),
                     child: Container(
+                      padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 20.h),
                       color: Colors.white,
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          SizedBox(height: 8.h),
                           Text(
-                            'সর্বশেষ আপডেট: রবিবার ২৪ জুন, ২০২৪ রাত ৯.০০ টা',
+                            'last_update_news'.tr,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontFamily: 'NotoSansBengali',
@@ -156,74 +160,72 @@ class _StationInformationState extends State<StationInformation> with SingleTick
                               color: Colors.blue.shade900,
                             ),
                           ),
-                          SizedBox(height: 8.h),
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 8.w),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.blue.shade900,
+                          SizedBox(height: 12.h),
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.blue.shade900,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(12.r),
+                                topRight: Radius.circular(12.r),
+                              ),
+                            ),
+                            child: TabBar(
+                              controller: _tabController,
+                              indicatorSize: TabBarIndicatorSize.tab,
+                              indicator: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [Color(0xFF5AAFE5), Color(0xFF3B8DD2)],
+                                  begin: Alignment.topLeft,
+                                  end: Alignment.bottomRight,
+                                ),
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(12.r),
                                   topRight: Radius.circular(12.r),
                                 ),
                               ),
-                              child: TabBar(
-                                controller: _tabController,
-                                indicatorSize: TabBarIndicatorSize.tab,
-                                indicator: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [Color(0xFF5AAFE5), Color(0xFF3B8DD2)],
-                                    begin: Alignment.topLeft,
-                                    end: Alignment.bottomRight,
-                                  ),
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(12.r),
-                                    topRight: Radius.circular(12.r),
+                              labelColor: Colors.white,
+                              unselectedLabelColor: Colors.white70,
+                              tabs: [
+                                Tab(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(Icons.map, size: 20.sp),
+                                      SizedBox(width: 8.w),
+                                      Text(
+                                        "map_view".tr,
+                                        style: TextStyle(
+                                          fontFamily: 'NotoSansBengali',
+                                          letterSpacing: 0.3.sp,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14.sp,
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                                labelColor: Colors.white,
-                                unselectedLabelColor: Colors.white70,
-                                tabs: [
-                                  Tab(
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Icon(Icons.map, size: 20.sp),
-                                        SizedBox(width: 8.w),
-                                        Text(
-                                          "মানচিত্র দেখুন",
-                                          style: TextStyle(
-                                            fontFamily: 'NotoSansBengali',
-                                            letterSpacing: 0.3.sp,
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 14.sp,
-                                          ),
+                                Tab(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Icon(Icons.format_list_bulleted, size: 20.sp),
+                                      SizedBox(width: 8.w),
+                                      Text(
+                                        "list_view".tr,
+                                        style: TextStyle(
+                                          fontFamily: 'NotoSansBengali',
+                                          letterSpacing: 0.3.sp,
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14.sp,
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
-                                  Tab(
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Icon(Icons.format_list_bulleted, size: 20.sp),
-                                        SizedBox(width: 8.w),
-                                        Text(
-                                          "তালিকা দেখুন",
-                                          style: TextStyle(
-                                            fontFamily: 'NotoSansBengali',
-                                            letterSpacing: 0.3.sp,
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 14.sp,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ),
+                          SizedBox(height: 12.h),
                           Expanded(
                             child: TabBarView(
                               physics: NeverScrollableScrollPhysics(),

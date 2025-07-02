@@ -14,38 +14,34 @@ class StationInfoListView extends StatelessWidget {
     return Column(
       children: [
         // Search Box
-        Padding(
-          padding: EdgeInsets.fromLTRB(12.w, 16.h, 12.w, 6.h),
-          child: TextField(
-            controller: controller.textController,
-            onChanged: controller.updateSearch,
-            onSubmitted: controller.updateSearch,
-            textInputAction: TextInputAction.search,
-            decoration: InputDecoration(
-              hintText: 'স্টেশন অনুসারে অনুসন্ধান করুন',
-              hintStyle: TextStyle(
-                color: Colors.grey,
-                fontSize: 16.sp,
-                fontFamily: 'NotoSansBengali',
-                fontWeight: FontWeight.w400,
-              ),
-              label: Text('স্টেশন অনুসারে অনুসন্ধান করুন'),
-              labelStyle: TextStyle(
-                color: AppColors().app_primary,
-                fontSize: 14.sp,
-                fontFamily: 'NotoSansBengali',
-                fontWeight: FontWeight.w400,
-              ),
-              suffixIcon: Icon(Icons.search, size: 22.sp),
-              suffixIconColor: AppColors().app_primary,
-              contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(12.r),
-              ),
+        TextField(
+          controller: controller.textController,
+          onChanged: controller.updateSearch,
+          onSubmitted: controller.updateSearch,
+          textInputAction: TextInputAction.search,
+          decoration: InputDecoration(
+            hintText: 'search_text'.tr,
+            hintStyle: TextStyle(
+              color: Colors.grey,
+              fontSize: 16.sp,
+              fontFamily: 'NotoSansBengali',
+              fontWeight: FontWeight.w400,
+            ),
+            label: Text('search_text'.tr),
+            labelStyle: TextStyle(
+              color: AppColors().app_primary,
+              fontSize: 14.sp,
+              fontFamily: 'NotoSansBengali',
+              fontWeight: FontWeight.w400,
+            ),
+            suffixIcon: Icon(Icons.search, size: 22.sp),
+            suffixIconColor: AppColors().app_primary,
+            contentPadding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 10.h),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(12.r),
             ),
           ),
         ),
-
         // Suggestions and Result List
         Expanded(
           child: Obx(() {
@@ -53,7 +49,7 @@ class StationInfoListView extends StatelessWidget {
             final suggestions = controller.suggestions;
 
             return ListView(
-              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+              padding: EdgeInsets.symmetric(vertical: 4.h),
               children: [
                 if (controller.searchText.isNotEmpty && suggestions.isNotEmpty)
                   ...suggestions.map((s) => ListTile(
@@ -72,7 +68,7 @@ class StationInfoListView extends StatelessWidget {
                     padding: EdgeInsets.only(top: 40.h),
                     child: Center(
                       child: Text(
-                        'কোনো স্টেশন পাওয়া যায়নি',
+                        'no_results_found'.tr,
                         style: TextStyle(
                           color: AppColors().app_primary,
                           fontSize: 16.sp,

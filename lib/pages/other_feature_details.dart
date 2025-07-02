@@ -105,21 +105,22 @@ class InfoGraphicalView extends StatelessWidget {
                   ],
                 ),
               ),
+
               Positioned(
                 top: 100.h,
                 left: 0,
                 right: 0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(25.r),
-                    topLeft: Radius.circular(25.r),
+                    topRight: Radius.circular(16.r),
+                    topLeft: Radius.circular(16.r),
                   ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25.r),
-                        topRight: Radius.circular(25.r),
+                        topLeft: Radius.circular(16.r),
+                        topRight: Radius.circular(16.r),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -129,11 +130,14 @@ class InfoGraphicalView extends StatelessWidget {
                         ),
                       ],
                     ),
-                    child: Column(
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.only(top: 12.h),
-                          child: Text(
+                    child: Container(
+                      padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 20.h),
+                      color: Colors.white,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
                             'সর্বশেষ আপডেট: রবিবার ২৪ জুন, ২০২৫ রাত ৯.০০ টা',
                             style: TextStyle(
                               fontSize: 14.sp,
@@ -143,11 +147,8 @@ class InfoGraphicalView extends StatelessWidget {
                               color: Colors.blue.shade900,
                             ),
                           ),
-                        ),
-                        SizedBox(height: 8.h),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.w),
-                          child: Obx(() => Row(
+                          SizedBox(height: 12.h),
+                          Obx(() => Row(
                             children: controller.stationCategories.map((category) {
                               int index = controller.stationCategories.indexOf(category);
                               return Expanded(
@@ -161,10 +162,7 @@ class InfoGraphicalView extends StatelessWidget {
                               );
                             }).toList(),
                           )),
-                        ),
-                        Obx(() => Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 8.w),
-                          child: SizedBox(
+                          Obx(() => SizedBox(
                             height: MediaQuery.of(context).size.height - 150.h,
                             child: GoogleMap(
                               initialCameraPosition: CameraPosition(
@@ -177,23 +175,23 @@ class InfoGraphicalView extends StatelessWidget {
                               myLocationEnabled: true,
                               compassEnabled: true,
                             ),
-                          ),
-                        )),
-                      ],
+                          )),
+                        ],
+                      ),
                     ),
                   ),
                 ),
               ),
               Positioned(
-                top: 200.h,
-                left: 5.w,
-                right: 5.w,
+                top: 208.h,
+                left: 16.w,
+                right: 16.w,
                 child: Obx(() => controller.showingDistricts.value
                     ? Container(
                   padding: EdgeInsets.all(12.r),
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(12.r),
+                    borderRadius: BorderRadius.circular(8.r),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black12,

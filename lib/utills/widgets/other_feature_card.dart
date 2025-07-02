@@ -57,14 +57,7 @@ class OtherFeatureCard extends StatelessWidget {
           width: 110.w,
           decoration: BoxDecoration(
             color: AppColors().app_secondary_bg,
-            borderRadius: BorderRadius.circular(12.r),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors().app_secondary_bg,
-                blurRadius: 4.r,
-                offset: Offset(2, 2),
-              ),
-            ],
+            borderRadius: BorderRadius.circular(16.r),
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(

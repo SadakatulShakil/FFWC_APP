@@ -108,15 +108,15 @@ class _ProfilePageState extends State<ProfilePage> {
                 bottom: 0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(25.r),
-                    topLeft: Radius.circular(25.r),
+                    topRight: Radius.circular(16.r),
+                    topLeft: Radius.circular(16.r),
                   ),
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.grey.shade100,
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(25.r),
-                        topLeft: Radius.circular(25.r),
+                        topRight: Radius.circular(16.r),
+                        topLeft: Radius.circular(16.r),
                       ),
                       boxShadow: [
                         BoxShadow(

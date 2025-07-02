@@ -30,6 +30,7 @@ class LocalizationString extends Translations {
       //Dashboard
       'location_text': 'Mirpur DOHS, Dhaka, Bangladesh',
       'temperature': '32',
+      'base': '°C',
       'low': '28°C',
       'high': '35°C',
       'wind': '15%',
@@ -67,7 +68,20 @@ class LocalizationString extends Translations {
       'water_level_forecast': 'Water Level Forecast',
       'inundation_map': 'Inundation Map',
 
-      // Add more strings as needed
+      //Station information
+      'last_update_news': 'Last Update: Sunday, 24 June 2024, 9:00 PM',
+      'map_view': 'Map View',
+      'list_view': 'List View',
+      'search_text': 'Search by Station Name',
+      'no_results_found': 'No results found',
+
+      //Pdf Page
+      'pdf_page': 'PDF Preview',
+      'go_to_page': 'Go to Page',
+      'page_number': 'Enter Page Number',
+      'cancel': 'Cancel',
+      'go': 'Go',
+
     },
     'bn_BD': {
 
@@ -95,6 +109,7 @@ class LocalizationString extends Translations {
       //Dashboard
       'location_text': 'মিরপুর ডিওএইচএস, ঢাকা, বাংলাদেশ',
       'temperature': '৩২',
+      'base': '°সে',
       'low': '২৮°সে',
       'high': '৩৫°সে',
       'wind': '১৫%',
@@ -131,6 +146,20 @@ class LocalizationString extends Translations {
       'rainfall_info': 'বৃষ্টিপাতের তথ্য',
       'water_level_forecast': 'জলস্তরের পূর্বাভাস',
       'inundation_map': 'জলাবদ্ধতা মানচিত্র',
+
+      //Station information
+      'last_update_news': 'সর্বশেষ আপডেট: রবিবার ২৪ জুন, ২০২৪ রাত ৯.০০ টা',
+      'map_view': 'মানচিত্র দেখুন',
+      'list_view': 'তালিকা দেখুন',
+      'search_text': 'স্টেশন অনুসারে অনুসন্ধান করুন',
+      'no_results_found': 'কোন ফলাফল পাওয়া যায়নি',
+
+      //Pdf Page
+      'pdf_page': 'পিডিএফ প্রিভিউ',
+      'go_to_page': 'পৃষ্ঠায় যান',
+      'page_number': 'পৃষ্ঠা নম্বর লিখুন',
+      'cancel': 'বাতিল',
+      'go': 'যাও',
     }
   };
 }

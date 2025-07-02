@@ -101,16 +101,16 @@ class _RainfallInformationState extends State<RainfallInformation> {
                 right: 0,
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(25.r),
-                    topLeft: Radius.circular(25.r),
+                    topRight: Radius.circular(16.r),
+                    topLeft: Radius.circular(16.r),
                   ),
                   child: Container(
                     height: MediaQuery.of(context).size.height -60.h,
                     decoration: BoxDecoration(
                       color: Colors.grey.shade50,
                       borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25.r),
-                        topRight: Radius.circular(25.r),
+                        topLeft: Radius.circular(16.r),
+                        topRight: Radius.circular(16.r),
                       ),
                       boxShadow: [
                         BoxShadow(
@@ -121,13 +121,13 @@ class _RainfallInformationState extends State<RainfallInformation> {
                       ],
                     ),
                     child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Padding(
-                            padding: EdgeInsets.only(top: 12.h),
-                            child: Text(
+                      child: Container(
+                        padding: EdgeInsets.only(left: 16.w, right: 16.w, top: 20.h),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
                               'সর্বশেষ আপডেট: রবিবার ২৪ জুন, ২০২৫ রাত ৯.০০ টা',
                               style: TextStyle(
                                 fontSize: 14.sp,
@@ -137,10 +137,8 @@ class _RainfallInformationState extends State<RainfallInformation> {
                                 color: Colors.blue.shade900,
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.fromLTRB(12.w, 16.h, 12.w, 6.h),
-                            child: TextField(
+                            SizedBox(height: 16.h),
+                            TextField(
                               // controller: controller.textController,
                               // onChanged: controller.updateSearch,
                               // onSubmitted: controller.updateSearch,
@@ -168,10 +166,8 @@ class _RainfallInformationState extends State<RainfallInformation> {
                                 ),
                               ),
                             ),
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(12.r),
-                            child: Column(
+                            SizedBox(height: 12.h),
+                            Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 /// Station Info
@@ -216,41 +212,44 @@ class _RainfallInformationState extends State<RainfallInformation> {
                                   ),
                                 ),
                                 Container(
-                                  padding: EdgeInsets.all(16.r),
                                   width: double.infinity,
                                   color: Color(0xFFF0FAFF),
                                   child: Column(
                                     children: [
                                       /// Table Title
+                                      SizedBox(height: 16.h),
                                       Center(
                                         child: Text('সর্বশেষ বৃষ্টিপাতের অবস্থা',
                                           style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, fontFamily: 'NotoSansBengali'),
                                         ),
                                       ),
 
-                                      SizedBox(height: 10.h),
+                                      SizedBox(height: 8.h),
 
                                       /// Table
-                                      Table(
-                                        border: TableBorder.all(color: Colors.blue.shade100),
-                                        children: [
-                                          TableRow(
-                                            decoration: BoxDecoration(color: Colors.lightBlue.shade100),
-                                            children: [
-                                              _buildTableCell('তারিখ', true),
-                                              _buildTableCell('বৃষ্টিপাত (মি.মি)', true),
-                                            ],
-                                          ),
-                                          ...rainfallData.map((data) {
-                                            return TableRow(children: [
-                                              _buildTableCell(data['date']!),
-                                              _buildTableCell(data['rainfall']!),
-                                            ]);
-                                          }).toList(),
-                                        ],
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 12.w, right: 12.w),
+                                        child: Table(
+                                          border: TableBorder.all(color: Colors.blue.shade100),
+                                          children: [
+                                            TableRow(
+                                              decoration: BoxDecoration(color: Colors.lightBlue.shade100),
+                                              children: [
+                                                _buildTableCell('তারিখ', true),
+                                                _buildTableCell('বৃষ্টিপাত (মি.মি)', true),
+                                              ],
+                                            ),
+                                            ...rainfallData.map((data) {
+                                              return TableRow(children: [
+                                                _buildTableCell(data['date']!),
+                                                _buildTableCell(data['rainfall']!),
+                                              ]);
+                                            }).toList(),
+                                          ],
+                                        ),
                                       ),
 
-                                      SizedBox(height: 12.h),
+                                      SizedBox(height: 24.h),
 
                                       /// Button
                                       Center(
@@ -265,7 +264,7 @@ class _RainfallInformationState extends State<RainfallInformation> {
                                         ),
                                       ),
 
-                                      SizedBox(height: 32.h),
+                                      SizedBox(height: 60.h),
 
                                       /// Chart Title
                                       Center(
@@ -273,68 +272,71 @@ class _RainfallInformationState extends State<RainfallInformation> {
                                             style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold, fontFamily: 'NotoSansBengali')),
                                       ),
 
-                                      SizedBox(height: 32.h),
+                                      SizedBox(height: 10.h),
 
                                       /// Line Chart
-                                      SizedBox(
-                                        height: 250.h,
-                                        child: LineChart(
-                                          LineChartData(
-                                            minY: 0,
-                                            maxY: 250,
-                                            gridData: FlGridData(
-                                              show: true,
-                                              horizontalInterval: 50,
-                                              drawVerticalLine: false,
-                                            ),
-                                            borderData: FlBorderData(
-                                              show: true,
-                                              border: const Border(
-                                                left: BorderSide(color: Colors.black26),
-                                                bottom: BorderSide(color: Colors.black26),
+                                      Padding(
+                                        padding: EdgeInsets.only(left: 8.w, right: 8.w),
+                                        child: SizedBox(
+                                          height: 250.h,
+                                          child: LineChart(
+                                            LineChartData(
+                                              minY: 0,
+                                              maxY: 250,
+                                              gridData: FlGridData(
+                                                show: true,
+                                                horizontalInterval: 50,
+                                                drawVerticalLine: false,
                                               ),
-                                            ),
-                                            titlesData: FlTitlesData(
-                                              rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                                              topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-                                              leftTitles: AxisTitles(
-                                                sideTitles: SideTitles(
-                                                  showTitles: true,
-                                                  interval: 50,
-                                                  getTitlesWidget: (value, _) => Text(
-                                                    value.toInt().toString(),
-                                                    style: TextStyle(fontSize: 10.sp),
+                                              borderData: FlBorderData(
+                                                show: true,
+                                                border: const Border(
+                                                  left: BorderSide(color: Colors.black26),
+                                                  bottom: BorderSide(color: Colors.black26),
+                                                ),
+                                              ),
+                                              titlesData: FlTitlesData(
+                                                rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                                                topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+                                                leftTitles: AxisTitles(
+                                                  sideTitles: SideTitles(
+                                                    showTitles: true,
+                                                    interval: 50,
+                                                    getTitlesWidget: (value, _) => Text(
+                                                      value.toInt().toString(),
+                                                      style: TextStyle(fontSize: 10.sp),
+                                                    ),
+                                                    reservedSize: 35.w,
                                                   ),
-                                                  reservedSize: 35.w,
+                                                ),
+                                                bottomTitles: AxisTitles(
+                                                  sideTitles: SideTitles(
+                                                    showTitles: true,
+                                                    interval: 1,
+                                                    getTitlesWidget: (value, _) {
+                                                      int index = value.toInt();
+                                                      return Padding(
+                                                        padding: EdgeInsets.only(top: 4.h),
+                                                        child: Text(
+                                                          index < xLabels.length ? xLabels[index] : '',
+                                                          style: TextStyle(fontSize: 10.sp, fontFamily: 'NotoSansBengali'),
+                                                        ),
+                                                      );
+                                                    },
+                                                  ),
                                                 ),
                                               ),
-                                              bottomTitles: AxisTitles(
-                                                sideTitles: SideTitles(
-                                                  showTitles: true,
-                                                  interval: 1,
-                                                  getTitlesWidget: (value, _) {
-                                                    int index = value.toInt();
-                                                    return Padding(
-                                                      padding: EdgeInsets.only(top: 4.h),
-                                                      child: Text(
-                                                        index < xLabels.length ? xLabels[index] : '',
-                                                        style: TextStyle(fontSize: 10.sp, fontFamily: 'NotoSansBengali'),
-                                                      ),
-                                                    );
-                                                  },
+                                              lineBarsData: [
+                                                LineChartBarData(
+                                                  spots: rainfallSpots,
+                                                  isCurved: true,
+                                                  color: Colors.blue,
+                                                  barWidth: 2,
+                                                  belowBarData: BarAreaData(show: false),
+                                                  dotData: FlDotData(show: true),
                                                 ),
-                                              ),
+                                              ],
                                             ),
-                                            lineBarsData: [
-                                              LineChartBarData(
-                                                spots: rainfallSpots,
-                                                isCurved: true,
-                                                color: Colors.blue,
-                                                barWidth: 2,
-                                                belowBarData: BarAreaData(show: false),
-                                                dotData: FlDotData(show: true),
-                                              ),
-                                            ],
                                           ),
                                         ),
                                       ),
@@ -343,9 +345,9 @@ class _RainfallInformationState extends State<RainfallInformation> {
                                   ),
                                 )
                               ],
-                            ),
-                          )
-                        ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),
