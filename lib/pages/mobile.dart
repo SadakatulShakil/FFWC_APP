@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../controllers/mobile/MobileController.dart';
@@ -12,7 +13,6 @@ class Mobile extends StatefulWidget {
 }
 
 class _MobileState extends State<Mobile> {
-
   MobileController controller = Get.put(MobileController());
 
   @override
@@ -25,48 +25,82 @@ class _MobileState extends State<Mobile> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset( 'assets/icons/logo.png', height: 96 ),
-              SizedBox(height: 16),
-              Text("LOGIN", style: TextStyle( fontSize: 20, fontWeight: FontWeight.w500, ) ),
-              Text("Please login safely to your account" ),
-              SizedBox(height: 16),
+              Text("welcome_message".tr,
+                  style: TextStyle(
+                    fontFamily: 'NotoSansBengali',
+                    fontSize: 22.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+              SizedBox(height: 16.h),
+              Image.asset('assets/icons/logo.png', height: 120.h),
+              SizedBox(height: 10.h),
+              Text("welcome_login".tr,
+                  style: TextStyle(
+                    fontFamily: 'NotoSansBengali',
+                    fontSize: 22.sp,
+                    fontWeight: FontWeight.w700,
+                  )),
+              SizedBox(height: 10.h),
+              Text("login_greetings".tr,
+                  style: TextStyle(
+                    fontFamily: 'NotoSansBengali',
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                  )),
+              SizedBox(height: 16.h),
               Padding(
-                padding: const EdgeInsets.only(left: 30, top: 0, right: 30, bottom: 0),
+                padding: EdgeInsets.symmetric(horizontal: 30.w),
                 child: TextField(
                   controller: controller.mobile,
                   decoration: InputDecoration(
-                      hintText: "01xxxxxxxxx",
-                      label: Text("Enter Mobile Number", style: TextStyle(color: AppColors().app_primary),),
+                    hintText: "01xxxxxxxxx",
+                    label: Text(
+                      "mobile_no_hint".tr,
+                      style: TextStyle(
+                        color: AppColors().app_primary,
+                        fontFamily: 'NotoSansBengali',
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
                     border: OutlineInputBorder(),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(4),
-                      borderSide: BorderSide(color: AppColors().app_secondary_bg),
+                      borderRadius: BorderRadius.circular(4.r),
+                      borderSide: BorderSide(color: AppColors().app_primary),
                     ),
                   ),
-                  cursorColor: AppColors().app_secondary_bg,
+                  cursorColor: AppColors().app_primary,
                   keyboardType: TextInputType.number,
                 ),
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 16.h),
               SizedBox(
                 width: double.infinity,
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 30, top: 0, right: 30, bottom: 0),
+                  padding: EdgeInsets.symmetric(horizontal: 30.w),
                   child: ElevatedButton(
                     onPressed: controller.gotoOTP,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors().app_primary,
-                      padding: const EdgeInsets.fromLTRB(0, 12, 0, 12),
+                      padding: EdgeInsets.symmetric(vertical: 12.h),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(4),
+                        borderRadius: BorderRadius.circular(4.r),
                       ),
                     ),
-                    child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 16)),
+                    child: Text("login_btn".tr,
+                        style: TextStyle(
+                          color: AppColors().white_font_color,
+                          fontFamily: 'NotoSansBengali',
+                          fontWeight: FontWeight.w700,
+                          fontSize: 16.sp,
+                        )),
                   ),
                 ),
               ),
-              SizedBox(height: 24),
-              Text("Powered by RIMES" ),
+              SizedBox(height: 24.h),
+              Text("Powered by RIMES", style: TextStyle(
+                  fontFamily: 'NotoSansBengali',
+                  fontSize: 14.sp)),
             ],
           ),
         ),

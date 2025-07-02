@@ -5,8 +5,19 @@ class LocalizationString extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
     'en_US': {
+      //Login Page
       'app_name': 'FFWC App',
+      'welcome_login': 'LOGIN',
+      'login_greetings': 'Please login safely to your account',
       'welcome_message': 'Welcome to the FFWC App',
+      'mobile_no_hint': 'Enter Mobile Number',
+      'login_btn': 'Login',
+      //Otp Page
+      'otp_title': 'OTP VERIFICATION',
+      'otp_message': 'Enter the OTP sent to:',
+      'wait': 'Wait ',
+      'after_wait': ' seconds to send new code.',
+      'resend_otp': 'RESEND CODE',
       'settings': 'Settings',
       'language': 'Language',
       'profile_language_select': 'Language',
@@ -30,8 +41,22 @@ class LocalizationString extends Translations {
       // Add more strings as needed
     },
     'bn_BD': {
+      //Login Page
       'app_name': 'এফএফডব্লিউসি অ্যাপ',
+      'welcome_login': 'লগইন',
+      'login_greetings': 'আপনার অ্যাকাউন্টে নিরাপদে লগইন করুন',
       'welcome_message': 'এফএফডব্লিউসি অ্যাপে আপনাকে স্বাগতম',
+      'mobile_no_hint': 'মোবাইল নম্বর লিখুন',
+      'login_btn': 'লগইন',
+
+      //Otp Page
+      'otp_title': 'ওটিপি যাচাইকরণ',
+      'otp_message': 'আপনার ওটিপি লিখুন যা পাঠানো হয়েছে: ',
+      'wait': 'অপেক্ষা করুন ',
+      'after_wait': ' সেকেন্ড নতুন কোড পাঠানোর জন্য',
+      'resend_otp': 'কোড পুনরায় পাঠান',
+
+      //Dashboard
       'settings': 'সেটিংস',
       'language': 'ভাষা',
       'profile_language_select': 'ভাষা পরিবর্তন',
